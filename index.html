@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DarkSignal · Market Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F8F7F4;
+  --surface:#FFFFFF;
+  --surface2:#F2F0EB;
+  --border:#E4E1D8;
+  --border2:#EDE9E1;
+  --ink:#1C1B18;
+  --ink2:#5C5A54;
+  --ink3:#9C9A94;
+  --ink4:#C4C2BC;
+  --brand:#1A1714;
+  --gold:#C8962A;
+  --gold-bg:#FBF4E6;
+  --gold-border:#F0D898;
+  --teal:#0D7F5F;
+  --teal-bg:#EBF8F3;
+  --teal-border:#A3D9C6;
+  --red:#C93535;
+  --red-bg:#FEF0F0;
+  --red-border:#F5BCBC;
+  --amber:#B86E0A;
+  --amber-bg:#FEF6EC;
+  --amber-border:#F5D4A0;
+  --blue:#1755A8;
+  --blue-bg:#EEF4FD;
+  --blue-border:#ACC8F0;
+  --purple:#5E3DBD;
+  --purple-bg:#F2EFFE;
+  --purple-border:#C8BAF5;
+  --radius:8px;
+  --radius-lg:12px;
+}
+html,body{height:100%;font-family:'Inter',sans-serif;font-size:13px;background:var(--bg);color:var(--ink);line-height:1.5;overflow:hidden}
+
+/* ── TOPBAR ── */
+.topbar{
+  height:54px;background:var(--surface);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;
+  padding:0 1.5rem;gap:0;
+  flex-shrink:0;position:relative;z-index:10;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-svg{flex-shrink:0}
+.logo-text{display:flex;flex-direction:column;line-height:1}
+.logo-name{font-size:16px;font-weight:700;color:var(--brand);letter-spacing:-.025em}
+.logo-tag{font-size:10px;font-weight:400;color:var(--ink3);letter-spacing:.02em;margin-top:1px}
+.tb-div{width:1px;height:22px;background:var(--border);margin:0 1.25rem}
+.tb-nav{display:flex;gap:0}
+.tb-link{
+  font-size:13px;font-weight:500;color:var(--ink3);
+  padding:.3rem .9rem;border-radius:6px;cursor:pointer;
+  border:none;background:none;transition:all .15s;
+}
+.tb-link:hover{color:var(--ink);background:var(--surface2)}
+.tb-link.on{color:var(--ink);background:var(--surface2)}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:.75rem}
+.tb-pill{
+  font-size:11px;font-weight:500;
+  padding:4px 12px;border-radius:20px;
+  background:var(--teal-bg);
+  border:.5px solid var(--teal-border);
+  color:var(--teal);
+  display:flex;align-items:center;gap:5px;
+}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:fade 1.8s infinite}
+@keyframes fade{0%,100%{opacity:1}50%{opacity:.25}}
+.tb-stat{font-size:12px;color:var(--ink3)}
+.tb-stat b{color:var(--ink);font-weight:600}
+
+/* ── SHELL ── */
+.shell{height:calc(100vh - 54px);display:flex;overflow:hidden}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  width:64px;background:var(--surface);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  align-items:center;padding:.75rem 0;gap:3px;
+  flex-shrink:0;
+}
+.sb-btn{
+  width:44px;height:44px;border-radius:var(--radius);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;cursor:pointer;border:none;background:transparent;
+  transition:background .15s;position:relative;
+}
+.sb-btn:hover{background:var(--surface2)}
+.sb-btn.on{background:var(--gold-bg)}
+.sb-icon{font-size:16px;line-height:1}
+.sb-label{font-size:8px;font-weight:500;color:var(--ink3);letter-spacing:.04em;text-transform:uppercase}
+.sb-btn.on .sb-label{color:var(--gold)}
+.sb-badge{
+  position:absolute;top:5px;right:5px;
+  width:7px;height:7px;border-radius:50%;
+  background:var(--red);
+}
+.sb-divider{width:32px;height:1px;background:var(--border);margin:.4rem 0}
+
+/* ── MAIN ── */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+
+/* ── VIEWS ── */
+.view{display:none;flex:1;flex-direction:column;overflow:hidden}
+.view.on{display:flex}
+
+/* ── COMMAND CENTER ── */
+.cc-kpis{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:10px;padding:1rem 1.25rem .85rem;
+  background:var(--surface);border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.kpi{background:var(--bg);border:.5px solid var(--border);border-radius:var(--radius);padding:.75rem .9rem}
+.kpi.accent{background:var(--gold-bg);border-color:var(--gold-border)}
+.kpi-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);margin-bottom:.3rem}
+.kpi.accent .kpi-label{color:var(--gold)}
+.kpi-val{font-size:1.5rem;font-weight:700;color:var(--ink);line-height:1}
+.kpi.accent .kpi-val{color:var(--gold)}
+.kpi-delta{font-size:11px;color:var(--teal);margin-top:.2rem}
+
+.cc-body{display:grid;grid-template-columns:340px 1fr;flex:1;overflow:hidden}
+
+/* FEED */
+.feed-col{border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;background:var(--surface)}
+.feed-head{padding:.75rem .9rem;border-bottom:1px solid var(--border);flex-shrink:0}
+.fh-row1{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem}
+.fh-title{font-size:13px;font-weight:600;color:var(--ink)}
+.fh-badge{font-size:10px;font-weight:600;background:var(--red-bg);border:.5px solid var(--red-border);color:var(--red);padding:2px 8px;border-radius:10px}
+.fh-filters{display:flex;gap:4px;flex-wrap:wrap}
+.ff{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;border:.5px solid var(--border);background:var(--surface);color:var(--ink3);cursor:pointer;transition:all .12s}
+.ff:hover{border-color:var(--ink3);color:var(--ink)}
+.ff.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+.feed-scroll{overflow-y:auto;flex:1}
+.feed-scroll::-webkit-scrollbar{width:3px}
+.feed-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+/* SIGNAL CARD */
+.sc{
+  padding:.8rem .9rem;border-bottom:1px solid var(--border2);
+  cursor:pointer;transition:background .1s;
+  border-left:3px solid transparent;
+}
+.sc:hover{background:var(--bg)}
+.sc.sel{background:var(--gold-bg);border-left-color:var(--gold)}
+.sc-row1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:.3rem}
+.sc-co{font-size:13px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:6px}
+.sc-sent{font-size:10px;font-weight:500;color:var(--teal);background:var(--teal-bg);padding:1px 6px;border-radius:8px}
+.sc-time{font-size:11px;color:var(--ink3);white-space:nowrap}
+.sc-desc{font-size:11px;color:var(--ink2);line-height:1.45;margin-bottom:.4rem}
+.sc-btm{display:flex;align-items:center;gap:6px}
+.sc-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;letter-spacing:.02em}
+.sc-urg{display:flex;align-items:center;gap:5px;margin-left:auto}
+.sc-urg-label{font-size:10px;color:var(--ink3)}
+.sc-urg-bar{width:44px;height:3px;border-radius:2px;background:var(--border);overflow:hidden}
+.sc-urg-fill{height:100%;border-radius:2px}
+.sc-urg-num{font-size:10px;font-weight:600}
+
+/* DETAIL */
+.det-col{overflow-y:auto;background:var(--bg);display:flex;flex-direction:column}
+.det-col::-webkit-scrollbar{width:3px}
+.det-col::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.det-blank{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:.75rem;padding:2rem;
+}
+.db-icon{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--surface);border:.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;
+}
+.db-text{font-size:12px;color:var(--ink3);text-align:center;line-height:1.6}
+
+.det-inner{padding:1.1rem;display:flex;flex-direction:column;gap:9px}
+
+/* DETAIL CARDS */
+.d-hero{background:var(--surface);border:.5px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.1rem}
+.dh-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:.5rem}
+.dh-co{font-size:1rem;font-weight:700;color:var(--ink)}
+.dh-ind{font-size:11px;color:var(--ink3);margin-top:2px}
+.dh-tag{font-size:10px;font-weight:600;padding:3px 10px;border-radius:4px;flex-shrink:0;margin-top:3px}
+.dh-desc{font-size:12px;color:var(--ink2);line-height:1.55}
+
+.d-news{
+  background:var(--surface);border:.5px solid var(--border);
+  border-left:3px solid var(--teal);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:.85rem 1rem;
+}
+.dn-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);margin-bottom:.35rem;display:flex;align-items:center;gap:5px}
+.dn-live{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:fade 1.5s infinite}
+.dn-headline{font-size:13px;font-weight:500;color:var(--ink);line-height:1.5;margin-bottom:.3rem}
+.dn-src{font-size:11px;color:var(--ink3)}
+
+.d-sigs{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ds{background:var(--surface);border:.5px solid var(--border);border-radius:var(--radius);padding:.7rem .8rem;border-top:2px solid var(--border)}
+.ds.red{border-top-color:var(--red)}
+.ds.amber{border-top-color:var(--amber)}
+.ds.teal{border-top-color:var(--teal)}
+.ds.blue{border-top-color:var(--blue)}
+.ds.purple{border-top-color:var(--purple)}
+.ds-lbl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);margin-bottom:.3rem}
+.ds.red .ds-lbl{color:var(--red)}
+.ds.amber .ds-lbl{color:var(--amber)}
+.ds.teal .ds-lbl{color:var(--teal)}
+.ds.blue .ds-lbl{color:var(--blue)}
+.ds.purple .ds-lbl{color:var(--purple)}
+.ds-val{font-size:1.2rem;font-weight:700;color:var(--ink);line-height:1;margin-bottom:2px}
+.ds.red .ds-val{color:var(--red)}
+.ds.amber .ds-val{color:var(--amber)}
+.ds.teal .ds-val{color:var(--teal)}
+.ds.blue .ds-val{color:var(--blue)}
+.ds.purple .ds-val{color:var(--purple)}
+.ds-sub{font-size:10px;color:var(--ink3)}
+
+.d-blind{background:var(--surface);border:.5px solid var(--border);border-radius:var(--radius)}
+.db-head{
+  padding:.55rem .85rem;border-bottom:.5px solid var(--border);
+  display:flex;align-items:center;gap:7px;background:var(--surface2);
+  border-radius:var(--radius) var(--radius) 0 0;
+}
+.db-head-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--ink2)}
+.db-indicator{display:flex;align-items:center;gap:4px;margin-left:auto}
+.dbi-dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:fade 1.5s infinite}
+.dbi-text{font-size:10px;color:var(--red);font-weight:500}
+.db-rows{padding:.4rem .85rem}
+.db-row{display:flex;align-items:center;gap:8px;padding:.4rem 0;border-bottom:.5px solid var(--border2);font-size:12px}
+.db-row:last-child{border:none}
+.db-k{color:var(--ink2);flex:1}
+.db-v{font-weight:600;font-size:11px}
+.db-v.r{color:var(--red)}.db-v.a{color:var(--amber)}.db-v.t{color:var(--teal)}.db-v.b{color:var(--blue)}
+
+.d-contact{
+  background:var(--surface);border:.5px solid var(--border);
+  border-radius:var(--radius);padding:.75rem .9rem;
+  display:flex;align-items:center;gap:10px;
+}
+.d-av{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--gold-bg);border:.5px solid var(--gold-border);
+  color:var(--gold);font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.d-cname{font-size:12px;font-weight:600;color:var(--ink)}
+.d-crole{font-size:11px;color:var(--ink3);margin-top:1px}
+.d-cprod{margin-left:auto;text-align:right}
+.d-cprod-lbl{font-size:9px;color:var(--ink3);font-weight:500;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1px}
+.d-cprod-val{font-size:11px;color:var(--brand);font-weight:500}
+
+.gen-btn{
+  width:100%;padding:.65rem;
+  background:var(--brand);color:#fff;
+  border:none;border-radius:var(--radius);
+  font-size:13px;font-weight:600;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  transition:all .15s;
+}
+.gen-btn:hover:not(:disabled){background:#2e2b27;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.gen-btn:disabled{background:var(--surface2);color:var(--ink3);cursor:not-allowed;transform:none;box-shadow:none}
+.spin{width:13px;height:13px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* EMAIL */
+.email-wrap{background:var(--surface);border:.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.ew-chrome{
+  background:var(--surface2);border-bottom:.5px solid var(--border);
+  padding:.5rem .9rem;display:flex;align-items:center;gap:7px;
+}
+.ew-dot{width:9px;height:9px;border-radius:50%}
+.ew-title{font-size:11px;color:var(--ink3);margin-left:4px;flex:1}
+.ew-ai{font-size:10px;font-weight:600;color:var(--teal);background:var(--teal-bg);padding:2px 8px;border-radius:10px}
+.ew-fields{border-bottom:.5px solid var(--border);padding:.5rem .9rem;display:flex;flex-direction:column;gap:3px}
+.ew-field{display:flex;gap:7px;font-size:11px;padding:2px 0}
+.ew-fl{color:var(--ink3);width:46px;flex-shrink:0}
+.ew-fv{color:var(--ink);font-weight:500}
+.ew-body{padding:.85rem .9rem;font-size:12px;line-height:1.85;color:var(--ink2);white-space:pre-wrap}
+.ew-actions{
+  padding:.55rem .9rem;background:var(--surface2);
+  border-top:.5px solid var(--border);
+  display:flex;gap:7px;align-items:center;
+}
+.ea{
+  padding:4px 14px;border-radius:6px;font-size:12px;font-weight:500;
+  cursor:pointer;border:.5px solid var(--border);
+  background:var(--surface);color:var(--ink2);
+  transition:all .12s;
+}
+.ea:hover{border-color:var(--brand);color:var(--brand)}
+.ea.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+.ea.primary:hover{background:#2e2b27}
+.ea-status{margin-left:auto;font-size:11px;color:var(--ink3)}
+.ea-status.ok{color:var(--teal);font-weight:500}
+
+/* ── PIPELINE VIEW ── */
+.pl-view{padding:1.25rem;overflow-y:auto;flex-direction:column;gap:12px}
+.pl-header{margin-bottom:.25rem}
+.pl-title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:.2rem}
+.pl-sub{font-size:12px;color:var(--ink3)}
+.pl-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pl-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pc{background:var(--surface);border:.5px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem}
+.pc-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:.85rem}
+.fn-row{display:flex;align-items:center;gap:8px;padding:3px 0}
+.fn-l{font-size:11px;color:var(--ink2);width:110px;text-align:right;flex-shrink:0}
+.fn-track{flex:1;height:22px;background:var(--surface2);border-radius:4px;overflow:hidden}
+.fn-bar{height:100%;border-radius:4px;display:flex;align-items:center;padding:0 8px}
+.fn-bar span{font-size:11px;font-weight:600;color:#fff;white-space:nowrap}
+.fn-pct{font-size:10px;color:var(--ink3);width:30px}
+.tr-row{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:.5px solid var(--border2)}
+.tr-row:last-child{border:none}
+.tr-pill{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;width:105px;text-align:center;flex-shrink:0}
+.tr-track{flex:1;height:5px;background:var(--surface2);border-radius:2px;overflow:hidden}
+.tr-fill{height:100%;border-radius:2px}
+.tr-n{font-size:11px;font-weight:500;color:var(--ink2);min-width:28px;text-align:right}
+.roi{background:var(--gold-bg);border:.5px solid var(--gold-border);border-radius:var(--radius);padding:.85rem;margin-top:10px}
+.roi-title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:.5rem}
+.roi-row{display:flex;justify-content:space-between;font-size:12px;padding:2px 0}
+.roi-row .k{color:var(--ink2)}.roi-row .v{font-weight:600;color:var(--ink)}
+.roi-total{border-top:.5px solid var(--gold-border);margin-top:6px;padding-top:6px;display:flex;justify-content:space-between;font-size:14px;font-weight:700}
+.roi-total .k{color:var(--gold)}.roi-total .v{color:var(--gold)}
+
+/* ── KPI BOTTOM BAR ── */
+.kpi-foot{
+  height:44px;background:var(--surface);border-top:1px solid var(--border);
+  display:grid;grid-template-columns:repeat(4,1fr);flex-shrink:0;
+}
+.kf{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  border-right:1px solid var(--border);padding:.4rem;
+}
+.kf:last-child{border:none}
+.kf-v{font-size:13px;font-weight:700;color:var(--gold)}
+.kf-l{font-size:10px;color:var(--ink3)}
+.kf-up{color:var(--teal);font-size:10px;font-weight:500}
+
+@media(max-width:768px){
+  .cc-body{grid-template-columns:1fr}
+  .det-col{display:none}
+  .cc-kpis{grid-template-columns:1fr 1fr}
+  .pl-kpis{grid-template-columns:1fr 1fr}
+  .pl-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOPBAR ── -->
+<div class="topbar">
+  <a class="logo" href="#">
+    <!-- DarkSignal Logo — radar wave + meltwater drop inspired -->
+    <svg class="logo-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="36" height="36" rx="9" fill="#1A1714"/>
+      <!-- Meltwater-inspired signal arcs -->
+      <path d="M18 26 C18 26 10 20 10 14 C10 9.58 13.58 6 18 6 C22.42 6 26 9.58 26 14 C26 20 18 26 18 26Z" fill="none" stroke="#C8962A" stroke-width="1.5" opacity="0.35"/>
+      <path d="M18 22 C18 22 13 18 13 14 C13 11.24 15.24 9 18 9 C20.76 9 23 11.24 23 14 C23 18 18 22 18 22Z" fill="none" stroke="#C8962A" stroke-width="1.5" opacity="0.6"/>
+      <!-- Center dot — the detected signal -->
+      <circle cx="18" cy="14" r="3" fill="#C8962A"/>
+      <!-- Signal pulse ring -->
+      <circle cx="18" cy="14" r="5" fill="none" stroke="#C8962A" stroke-width="1" opacity="0.4"/>
+    </svg>
+    <div class="logo-text">
+      <div class="logo-name">DarkSignal</div>
+      <div class="logo-tag">by Meltwater</div>
+    </div>
+  </a>
+  <div class="tb-div"></div>
+  <div class="tb-nav">
+    <button class="tb-link on" onclick="switchTab('cmd',this)">Signal Feed</button>
+    <button class="tb-link" onclick="switchTab('pipeline',this)">Revenue Impact</button>
+  </div>
+  <div class="tb-right">
+    <div class="tb-pill"><div class="live-dot"></div>Monitoring live · 270K+ sources</div>
+    <div class="tb-stat">Today <b id="hc">47</b> signals detected</div>
+    <div class="tb-stat">Pipeline <b>$47.2K</b></div>
+  </div>
+</div>
+
+<!-- ── SHELL ── -->
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sb-btn on" onclick="switchSb('cmd',this)" title="Signal Feed">
+      <div class="sb-icon">◎</div>
+      <div class="sb-label">Feed</div>
+      <div class="sb-badge"></div>
+    </div>
+    <div class="sb-divider"></div>
+    <div class="sb-btn" onclick="switchSb('pipeline',this)" title="Revenue Impact">
+      <div class="sb-icon">↗</div>
+      <div class="sb-label">Revenue</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- COMMAND CENTER VIEW -->
+    <div class="view on" id="view-cmd">
+      <div class="cc-kpis">
+        <div class="kpi">
+          <div class="kpi-label">Triggers Today</div>
+          <div class="kpi-val" id="k1">47</div>
+          <div class="kpi-delta">+12 from yesterday</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Outreach Sent</div>
+          <div class="kpi-val">94</div>
+          <div class="kpi-delta">18 in last 24 hrs</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Demos Booked</div>
+          <div class="kpi-val">8</div>
+          <div class="kpi-delta">3 confirmed today</div>
+        </div>
+        <div class="kpi accent">
+          <div class="kpi-label">Pipeline This Week</div>
+          <div class="kpi-val">$47.2K</div>
+          <div class="kpi-delta">→ $188K / month target</div>
+        </div>
+      </div>
+
+      <div class="cc-body">
+        <!-- FEED -->
+        <div class="feed-col">
+          <div class="feed-head">
+            <div class="fh-row1">
+              <span class="fh-title">Live Signal Feed</span>
+              <span class="fh-badge" id="fcnt">5 active</span>
+            </div>
+            <div class="fh-filters">
+              <button class="ff on" onclick="filt('all',this)">All</button>
+              <button class="ff" onclick="filt('shadow',this)">Shadow Coverage</button>
+              <button class="ff" onclick="filt('shift',this)">Coverage Shift</button>
+              <button class="ff" onclick="filt('hire',this)">New Hire</button>
+              <button class="ff" onclick="filt('llm',this)">LLM Gap</button>
+              <button class="ff" onclick="filt('echo',this)">Campaign Echo</button>
+            </div>
+          </div>
+          <div class="feed-scroll" id="feed"></div>
+        </div>
+
+        <!-- DETAIL -->
+        <div class="det-col" id="det">
+          <div class="det-blank">
+            <div class="db-icon">◎</div>
+            <div class="db-text">Select a signal from the feed<br>to reveal blind spots and generate<br>a personalised outreach email</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER KPIs -->
+      <div class="kpi-foot">
+        <div class="kf"><span class="kf-v" id="k2">47</span><span class="kf-l">Signals / day</span></div>
+        <div class="kf"><span class="kf-v">612</span><span class="kf-l">Emails / month</span><span class="kf-up">↑ 14%</span></div>
+        <div class="kf"><span class="kf-v">15.4%</span><span class="kf-l">Email → Demo rate</span></div>
+        <div class="kf"><span class="kf-v">$2.4M</span><span class="kf-l">Projected ARR / year</span><span class="kf-up">↑ Est.</span></div>
+      </div>
+    </div>
+
+    <!-- PIPELINE / REVENUE IMPACT VIEW -->
+    <div class="view" id="view-pipeline">
+      <div class="pl-view">
+        <div class="pl-header">
+          <div class="pl-title">Revenue Impact</div>
+          <div class="pl-sub">90-day projection modelled on current Meltwater data coverage and industry conversion benchmarks</div>
+        </div>
+        <div class="pl-kpis">
+          <div class="kpi"><div class="kpi-label">Triggers / Month</div><div class="kpi-val">1,840</div><div class="kpi-delta">Detected automatically 24/7</div></div>
+          <div class="kpi"><div class="kpi-label">Outreach Sent</div><div class="kpi-val">612</div><div class="kpi-delta">AI-written, AE-reviewed</div></div>
+          <div class="kpi"><div class="kpi-label">Demos Booked</div><div class="kpi-val">94</div><div class="kpi-delta">15.4% email-to-demo rate</div></div>
+          <div class="kpi accent"><div class="kpi-label">New ARR / Year</div><div class="kpi-val">$2.4M</div><div class="kpi-delta">Zero additional headcount</div></div>
+        </div>
+        <div class="pl-row">
+          <div class="pc">
+            <div class="pc-title">Conversion Funnel</div>
+            <div class="fn-row"><span class="fn-l">Triggers detected</span><div class="fn-track"><div class="fn-bar" style="width:100%;background:#5E3DBD"><span>1,840</span></div></div><span class="fn-pct">100%</span></div>
+            <div class="fn-row"><span class="fn-l">Qualified leads</span><div class="fn-track"><div class="fn-bar" style="width:72%;background:#1755A8"><span>1,325</span></div></div><span class="fn-pct">72%</span></div>
+            <div class="fn-row"><span class="fn-l">Outreach sent</span><div class="fn-track"><div class="fn-bar" style="width:33%;background:#0D7F5F"><span>612</span></div></div><span class="fn-pct">33%</span></div>
+            <div class="fn-row"><span class="fn-l">Demos booked</span><div class="fn-track"><div class="fn-bar" style="width:15%;background:#B86E0A"><span>94</span></div></div><span class="fn-pct">15%</span></div>
+            <div class="fn-row"><span class="fn-l">Closed won</span><div class="fn-track"><div class="fn-bar" style="width:6%;background:#0D7F5F"><span>24</span></div></div><span class="fn-pct">6%</span></div>
+            <div style="margin-top:.85rem;padding:.65rem .8rem;background:var(--teal-bg);border-radius:var(--radius);border:.5px solid var(--teal-border)">
+              <span style="font-size:12px;font-weight:500;color:var(--teal)">4.5 hrs/week reclaimed per AE — redirected from cold prospecting to closing</span>
+            </div>
+          </div>
+          <div class="pc">
+            <div class="pc-title">Signal Type Breakdown</div>
+            <div class="tr-row"><span class="tr-pill" style="background:var(--red-bg);color:var(--red)">Shadow Coverage</span><div class="tr-track"><div class="tr-fill" style="width:78%;background:var(--red)"></div></div><span class="tr-n">427</span></div>
+            <div class="tr-row"><span class="tr-pill" style="background:var(--amber-bg);color:var(--amber)">Coverage Shift</span><div class="tr-track"><div class="tr-fill" style="width:62%;background:var(--amber)"></div></div><span class="tr-n">340</span></div>
+            <div class="tr-row"><span class="tr-pill" style="background:var(--teal-bg);color:var(--teal)">New Hire Signal</span><div class="tr-track"><div class="tr-fill" style="width:55%;background:var(--teal)"></div></div><span class="tr-n">301</span></div>
+            <div class="tr-row"><span class="tr-pill" style="background:var(--blue-bg);color:var(--blue)">LLM Brand Gap</span><div class="tr-track"><div class="tr-fill" style="width:42%;background:var(--blue)"></div></div><span class="tr-n">228</span></div>
+            <div class="tr-row"><span class="tr-pill" style="background:var(--purple-bg);color:var(--purple)">Campaign Echo</span><div class="tr-track"><div class="tr-fill" style="width:30%;background:var(--purple)"></div></div><span class="tr-n">164</span></div>
+            <div class="roi">
+              <div class="roi-title">Annual Revenue Model</div>
+              <div class="roi-row"><span class="k">Trigger events / year</span><span class="v">22,080</span></div>
+              <div class="roi-row"><span class="k">Closes at 6% funnel</span><span class="v">288 new accounts</span></div>
+              <div class="roi-row"><span class="k">Average contract value</span><span class="v">$8,400</span></div>
+              <div class="roi-row"><span class="k">Additional headcount</span><span class="v">Zero</span></div>
+              <div class="roi-total"><span class="k">Projected new ARR</span><span class="v">$2.4M / year</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const SIGNALS = [
+  {
+    id:0, type:'shadow',
+    co:'Southwest Airlines', ind:'Aviation · 70,000 employees · United States',
+    emoji:'✈', ago:'4 hrs ago', urg:96,
+    typeLabel:'Shadow Coverage',
+    tagStyle:'background:var(--red-bg);color:var(--red)',
+    desc:'End of 52-year "Bags Fly Free" policy triggered widespread brand backlash. Sentiment collapse spreading across channels outside their monitoring scope while Delta gains.',
+    news:{
+      headline:'Southwest Airlines officially ended its "Bags Fly Free" policy in May 2025, introducing fees of $35 for the first bag and $45 for the second. The reversal — despite CEO Bob Jordan promising just months earlier the policy was "absolutely off-limits" — triggered immediate loyalty backlash and extensive media coverage labelling Southwest as "just like every other airline."',
+      src:'CBS News · Thrifty Traveler · Skift · Marketing Dive · May 2025'
+    },
+    blindSpots:[
+      {k:'Trade publications unmonitored',v:'147 outlets',c:'r'},
+      {k:'Delta positive coverage gain',v:'+34% real-time',c:'a'},
+      {k:'LLM crisis contamination',v:'Flagged in ChatGPT',c:'r'},
+      {k:'Loyalty forum spread',v:'Not indexed by tool',c:'r'}
+    ],
+    sigs:[
+      {c:'red',l:'Sentiment drop',v:'-61%',s:'vs 30-day baseline'},
+      {c:'red',l:'Negative mentions',v:'4,800+',s:'accelerating, 6 hrs'},
+      {c:'amber',l:'Delta coverage gain',v:'+34%',s:'competitor benefiting now'},
+      {c:'blue',l:'Unmonitored sources',v:'147',s:'trade press & loyalty forums'}
+    ],
+    contact:{n:'Linda Rutherford',i:'LR',r:'Chief Communications Officer, Southwest Airlines'},
+    prod:'Meltwater Explore · Crisis Intelligence',
+    ctx:'Southwest Airlines ended its 52-year-old "Bags Fly Free" policy in May 2025. The backlash is spreading well beyond social media into 147 trade publications, aviation loyalty forums, and LLM responses that their internal monitoring tool does not index. Delta Airlines is actively gaining positive press coverage in direct response. AI chatbots now cite this policy reversal prominently when users query Southwest brand values. Their tool shows them the social fire. DarkSignal shows them the full blast radius — including where Delta is winning the narrative while Southwest defends.'
+  },
+  {
+    id:1, type:'shift',
+    co:'Unilever', ind:'FMCG · 150,000 employees · Global',
+    emoji:'📊', ago:'6 hrs ago', urg:83,
+    typeLabel:'Coverage Shift',
+    tagStyle:'background:var(--amber-bg);color:var(--amber)',
+    desc:'P&G earned 847 press mentions vs Unilever\'s 134 this week. 7 key journalists have defected. The sustainability narrative Unilever pioneered is being quietly claimed by a competitor.',
+    news:{
+      headline:'P&G\'s "Everyday Better" sustainability programme dominated global media coverage through Q1 2025, earning 847 verified mentions across 340 tier-1 publications. Unilever — despite running comparable ESG initiatives — received only 134 mentions in the same period. Unilever\'s share of voice dropped from 28% in Q4 2024 to 13.7% by April 2025, with the sustainability narrative category most heavily ceded.',
+      src:'Marketing Week · Campaign Asia · PR Week · Meltwater SOV data · 2025'
+    },
+    blindSpots:[
+      {k:'Articles outside their query scope',v:'340 undetected',c:'r'},
+      {k:'Journalists who switched to P&G',v:'7 key writers',c:'r'},
+      {k:'Narrative categories lost',v:'ESG · Sustainability',c:'a'},
+      {k:'LLM brand SOV vs P&G',v:'11% vs 38%',c:'a'}
+    ],
+    sigs:[
+      {c:'amber',l:'Unilever mentions',v:'134',s:'this week, all sources'},
+      {c:'red',l:'P&G mentions',v:'847',s:'6× more — same category'},
+      {c:'red',l:'Share of voice',v:'13.7%',s:'was 28% in Q4 2024'},
+      {c:'blue',l:'AI chatbot presence',v:'11% vs 38%',s:'P&G dominates LLM answers'}
+    ],
+    contact:{n:'James Hartley',i:'JH',r:'Global Head of PR & Communications, Unilever'},
+    prod:'Meltwater Explore+ Competitive Intelligence · GenAI Lens',
+    ctx:'P&G systematically capitalised on sustainability and ESG narratives in 2025, earning 847 press mentions across Meltwater\'s full 270,000-source index. Unilever\'s ESG programme is comparable in scope — yet they received only 134 mentions. Unilever\'s monitoring tool shows them their SOV dropped. It cannot show them which 7 journalists defected, which narrative categories were specifically taken, or that their LLM share of voice is 11% versus P&G\'s 38% in AI chatbot responses. DarkSignal surfaces the defection map, the narrative gaps, and the AI presence gap — turning a depressing number into a specific, recoverable playbook.'
+  },
+  {
+    id:2, type:'hire',
+    co:'Mastercard', ind:'Financial Services · 33,000 employees · Global',
+    emoji:'👤', ago:'6 months ago', urg:81,
+    typeLabel:'New Hire Signal',
+    tagStyle:'background:var(--teal-bg);color:var(--teal)',
+    desc:'Jill Kramer appointed as new Chief Marketing & Communications Officer — succeeding the legendary Raja Rajamannar. Stack review underway. No updated Meltwater contract detected.',
+    news:{
+      headline:'Mastercard announced Jill Kramer as its new Chief Marketing and Communications Officer, effective December 1, 2025, succeeding Raja Rajamannar who transitions to Senior Fellow. Kramer joins from Accenture where she led global marketing that grew brand value from $12B to $20.9B. She brings deep B2B marketing expertise and is tasked with accelerating Mastercard\'s next growth chapter — including a full review of marketing technology partnerships.',
+      src:'Mastercard Press Release · BusinessWire · Marketing Interactive · October 2025'
+    },
+    blindSpots:[
+      {k:'Days into leadership transition',v:'174 days',c:'a'},
+      {k:'Meltwater contract status',v:'Review pending',c:'r'},
+      {k:'Prior tool stack (Accenture)',v:'Known intelligence gap',c:'a'},
+      {k:'B2B marketing focus',v:'Strong Meltwater fit',c:'t'}
+    ],
+    sigs:[
+      {c:'teal',l:'Days since appointment',v:'174',s:'long-window opportunity'},
+      {c:'red',l:'Meltwater contract',v:'Under review',c:'no confirmed renewal'},
+      {c:'amber',l:'Marketing budget',v:'~$500M+',s:'Mastercard annual spend'},
+      {c:'teal',l:'CMO background',v:'Accenture · B2B',s:'data-driven intelligence focus'}
+    ],
+    contact:{n:'Jill Kramer',i:'JK',r:'Chief Marketing & Communications Officer, Mastercard'},
+    prod:'Meltwater Unified Intelligence Suite · Media Relations',
+    ctx:'Mastercard appointed Jill Kramer as Chief Marketing and Communications Officer in December 2025, succeeding Raja Rajamannar who built one of the most admired marketing operations in financial services. Kramer joins from Accenture where she grew brand value by $8.9B — a data-driven, B2B-focused marketer who will be reviewing every element of Mastercard\'s intelligence and measurement stack. New CMOs replace 40–60% of their martech suite within the first year. Meltwater\'s media intelligence, social listening, and GenAI Lens capabilities are a natural fit for a leader of Kramer\'s profile — but the window to position proactively is narrowing.'
+  },
+  {
+    id:3, type:'llm',
+    co:'HSBC Group', ind:'Financial Services · 220,000 employees · Global',
+    emoji:'🔍', ago:'2 days ago', urg:77,
+    typeLabel:'LLM Brand Gap',
+    tagStyle:'background:var(--blue-bg);color:var(--blue)',
+    desc:'HSBC appears in only 9% of AI chatbot answers about UK banking and financial services. Barclays dominates at 44%. A structural blind spot no existing monitoring tool can surface.',
+    news:{
+      headline:'Analysis of ChatGPT, Gemini, Claude, and Perplexity responses across 1,200 UK banking and financial services queries reveals HSBC achieves only 9% brand presence in AI-generated answers — compared to Barclays at 44%. The gap is driven by Barclays\' consistent 2024–25 media activity around Open Banking, digital payments, and ESG announcements, which has disproportionately shaped LLM training narratives. No traditional monitoring tool tracks this dimension.',
+      src:'Meltwater GenAI Lens Analysis · FinTech Futures · Banking Technology · May 2025'
+    },
+    blindSpots:[
+      {k:'HSBC LLM share of voice',v:'9% only',c:'r'},
+      {k:'Barclays LLM presence',v:'44% — 5× more',c:'r'},
+      {k:'Can current tool track this?',v:'No — structurally',c:'r'},
+      {k:'Narrative driving the gap',v:'Open Banking · ESG',c:'a'}
+    ],
+    sigs:[
+      {c:'blue',l:'HSBC LLM presence',v:'9%',s:'across ChatGPT, Gemini, Claude, Perplexity'},
+      {c:'red',l:'Barclays LLM presence',v:'44%',s:'same category — 5× more visible'},
+      {c:'red',l:'Traditional media SOV',v:'11%',s:'down from 31% in April 2025'},
+      {c:'teal',l:'GenAI Lens exclusivity',v:'Industry first',s:'no competitor tracks this'}
+    ],
+    contact:{n:'Priya Nair',i:'PN',r:'Head of Corporate Communications, HSBC Group'},
+    prod:'Meltwater GenAI Lens · LLM Brand Intelligence',
+    ctx:'HSBC appears in only 9% of AI chatbot answers about UK banking and financial services — while Barclays commands 44%. This gap is driven by Barclays\' consistent press coverage around Open Banking regulation, digital payments, and ESG announcements that have shaped LLM training data narratives over 12 months. HSBC\'s communications team has no visibility into this because no monitoring tool — not Brandwatch, not Sprinklr, not Talkwalker — tracks LLM brand presence at scale. Only Meltwater\'s GenAI Lens does. This is the most structurally exclusive signal DarkSignal can surface: we can show HSBC a dimension of their brand visibility that is completely invisible to any tool they currently use.'
+  },
+  {
+    id:4, type:'echo',
+    co:'Zara / Inditex', ind:'Fashion Retail · 165,000 employees · Global',
+    emoji:'📣', ago:'8 months ago', urg:70,
+    typeLabel:'Campaign Echo',
+    tagStyle:'background:var(--purple-bg);color:var(--purple)',
+    desc:'Zara\'s landmark 50th anniversary supermodel campaign (50 icons inc. Naomi, Cindy, Linda, Christy) generated enormous earned media. But significant coverage spread into markets and channels their analytics cannot see.',
+    news:{
+      headline:'Zara launched their 50th anniversary campaign in May 2025, gathering 50 iconic models including Naomi Campbell, Cindy Crawford, Linda Evangelista, Christy Turlington, Kate Moss and Twiggy for a cinematic short film by Steven Meisel. The campaign generated millions of social impressions and earned extensive press coverage — but significant media spread occurred across Asian, Latin American, and Southeast Asian markets where Zara\'s monitoring was not fully configured. H&M counter-amplified their own campaigns in direct response.',
+      src:'Hollywood Reporter · W Magazine · Campaign · FranchiseTV · May 2025'
+    },
+    blindSpots:[
+      {k:'Earned articles unmonitored',v:'1,840+ publications',c:'a'},
+      {k:'Geographic blind zones',v:'Asia · LatAm · SEA',c:'r'},
+      {k:'H&M counter-campaign',v:'+22% coverage surge',c:'a'},
+      {k:'LLM campaign penetration',v:'Below 3%',c:'r'}
+    ],
+    sigs:[
+      {c:'teal',l:'Campaign mentions',v:'Millions',s:'4 weeks — majority untracked earned'},
+      {c:'amber',l:'Unmonitored articles',v:'1,840+',s:'outside configured monitoring scope'},
+      {c:'red',l:'LLM campaign presence',v:'<3%',s:'narrative not entering AI discovery'},
+      {c:'purple',l:'H&M counter-coverage',v:'+22%',s:'direct competitor capitalising'}
+    ],
+    contact:{n:'Eva González',i:'EG',r:'Global Communications Director, Inditex / Zara'},
+    prod:'Meltwater Radarly · GenAI Lens · Campaign Intelligence',
+    ctx:'Zara\'s 50th anniversary campaign featuring 50 iconic models was a defining cultural moment of May 2025. However, Zara\'s campaign analytics measured owned and paid performance — not the 1,840+ earned articles that spread across Asian, Latin American, and Southeast Asian markets outside their monitoring configuration. H&M increased their own brand coverage by 22% in direct response to the Zara campaign noise. Most critically, despite the cultural scale of the campaign, the narrative has penetrated less than 3% of LLM responses — meaning AI chatbots are not organically recommending or discussing the collection in discovery queries. DarkSignal shows the gap between what their dashboard reports and what the market actually received.'
+  }
+];
+
+const TC = {
+  shadow:{bar:['var(--red-bg)','var(--red)']},
+  shift:{bar:['var(--amber-bg)','var(--amber)']},
+  hire:{bar:['var(--teal-bg)','var(--teal)']},
+  llm:{bar:['var(--blue-bg)','var(--blue)']},
+  echo:{bar:['var(--purple-bg)','var(--purple)']},
+};
+
+let sent=new Set(), af='all';
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+function urgColor(u){return u>=90?'var(--red)':u>=75?'var(--amber)':'var(--blue)'}
+
+function buildFeed(f){
+  const items = f==='all'?SIGNALS:SIGNALS.filter(d=>d.type===f);
+  document.getElementById('fcnt').textContent = items.length+' active';
+  document.getElementById('feed').innerHTML = items.map(d=>{
+    const uc = urgColor(d.urg);
+    const stag = sent.has(d.id)?`<span class="sc-sent">Sent</span>`:'';
+    return `<div class="sc" id="sc${d.id}" onclick="sel(${d.id})">
+      <div class="sc-row1">
+        <span class="sc-co">${d.co} ${stag}</span>
+        <span class="sc-time">${d.ago}</span>
+      </div>
+      <div class="sc-desc">${d.desc.length>88?d.desc.slice(0,88)+'…':d.desc}</div>
+      <div class="sc-btm">
+        <span class="sc-tag" style="${d.tagStyle}">${d.typeLabel}</span>
+        <div class="sc-urg">
+          <span class="sc-urg-label">Urgency</span>
+          <div class="sc-urg-bar"><div class="sc-urg-fill" style="width:${d.urg}%;background:${uc}"></div></div>
+          <span class="sc-urg-num" style="color:${uc}">${d.urg}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function sel(id){
+  document.querySelectorAll('.sc').forEach(e=>e.classList.remove('sel'));
+  const el=document.getElementById('sc'+id); if(el)el.classList.add('sel');
+  const d=SIGNALS.find(x=>x.id===id);
+  const already=sent.has(id);
+
+  const sigBoxes = d.sigs.map(s=>
+    `<div class="ds ${s.c}"><div class="ds-lbl">${s.l}</div><div class="ds-val">${s.v}</div><div class="ds-sub">${s.s}</div></div>`
+  ).join('');
+
+  const bbRows = d.blindSpots.map(b=>
+    `<div class="db-row"><span class="db-k">${b.k}</span><span class="db-v ${b.c}">${b.v}</span></div>`
+  ).join('');
+
+  document.getElementById('det').innerHTML = `
+  <div class="det-inner">
+    <div class="d-hero">
+      <div class="dh-top">
+        <div>
+          <div class="dh-co">${d.co}</div>
+          <div class="dh-ind">${d.ind}</div>
+        </div>
+        <span class="dh-tag" style="${d.tagStyle}">${d.typeLabel}</span>
+      </div>
+      <div class="dh-desc">${d.desc}</div>
+    </div>
+
+    <div class="d-news">
+      <div class="dn-label"><div class="dn-live"></div>Confirmed signal · real news</div>
+      <div class="dn-headline">${d.news.headline}</div>
+      <div class="dn-src">${d.news.src}</div>
+    </div>
+
+    <div class="d-sigs">${sigBoxes}</div>
+
+    <div class="d-blind">
+      <div class="db-head">
+        <span class="db-head-label">What their current monitoring tool cannot show them</span>
+        <div class="db-indicator"><div class="dbi-dot"></div><span class="dbi-text">Active blind spots</span></div>
+      </div>
+      <div class="db-rows">${bbRows}</div>
+    </div>
+
+    <div class="d-contact">
+      <div class="d-av">${d.contact.i}</div>
+      <div>
+        <div class="d-cname">${d.contact.n}</div>
+        <div class="d-crole">${d.contact.r}</div>
+      </div>
+      <div class="d-cprod">
+        <div class="d-cprod-lbl">Recommended product</div>
+        <div class="d-cprod-val">${d.prod}</div>
+      </div>
+    </div>
+
+    <button class="gen-btn" id="gb${id}" onclick="genEmail(${id})"${already?' disabled':''}>
+      ${already?'✓  Outreach sent to AE queue':'Generate AI outreach email'}
+    </button>
+    <div id="eo${id}"></div>
+  </div>`;
+}
+
+async function genEmail(id){
+  const d = SIGNALS.find(x=>x.id===id);
+  const btn = document.getElementById('gb'+id);
+  const out = document.getElementById('eo'+id);
+  btn.disabled=true;
+  btn.innerHTML='<div class="spin"></div>Generating personalised outreach…';
+  out.innerHTML=`<div style="padding:1.25rem;text-align:center;font-size:12px;color:var(--ink3)">Reading blind spot signals and composing your email…</div>`;
+
+  const prompt=`You are a senior account executive at Meltwater — the world's leading media and social intelligence platform. Write a concise, highly personalised, professional cold outreach email to ${d.contact.n} (${d.contact.r} at ${d.co}).
+
+CONFIRMED REAL SIGNAL:
+${d.news.headline}
+
+BLIND SPOTS THEIR CURRENT TOOL CANNOT SHOW THEM:
+${d.blindSpots.map(b=>`- ${b.k}: ${b.v}`).join('\n')}
+
+FULL CONTEXT: ${d.ctx}
+
+MELTWATER PRODUCT: ${d.prod}
+
+RULES:
+- First line must be: Subject: [compelling specific subject line]
+- Then one blank line
+- Then exactly 3 paragraphs
+- Paragraph 1: Open referencing the SPECIFIC real event — make them feel seen, not sold to
+- Paragraph 2: The one blind spot their tool cannot show them — frame it as insight, not a sales pitch
+- Paragraph 3: Soft, low-friction CTA — suggest a 20-minute conversation
+- Tone: confident, peer-to-peer, genuinely useful — not cold or templated
+- Under 180 words total
+- Never use "I hope this email finds you well" or any filler`;
+
+  try{
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:600,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    const data = await res.json();
+    const raw=(data.content?.[0]?.text||'').trim();
+    const lines=raw.split('\n');
+    const subj=(lines.find(l=>/^subject:/i.test(l))||'Subject: Something we noticed').replace(/^subject:\s*/i,'');
+    const body=lines.filter(l=>!/^subject:/i.test(l)).join('\n').trim();
+    const emailAddr=d.contact.n.toLowerCase().replace(/\s+/,'.')+'@'+d.co.toLowerCase().replace(/[\s/].*/,'').replace(/\W/g,'')+'.com';
+
+    btn.disabled=false;
+    btn.innerHTML='↺  Regenerate outreach';
+
+    out.innerHTML=`
+    <div class="email-wrap">
+      <div class="ew-chrome">
+        <div class="ew-dot" style="background:#FF5F57"></div>
+        <div class="ew-dot" style="background:#FEBC2E"></div>
+        <div class="ew-dot" style="background:#28C840"></div>
+        <span class="ew-title">New Message — DarkSignal Outreach</span>
+        <span class="ew-ai">AI-written · signal-grounded</span>
+      </div>
+      <div class="ew-fields">
+        <div class="ew-field"><span class="ew-fl">To</span><span class="ew-fv">${d.contact.n} &lt;${emailAddr}&gt;</span></div>
+        <div class="ew-field"><span class="ew-fl">From</span><span class="ew-fv">Your Account Executive &lt;ae@meltwater.com&gt;</span></div>
+        <div class="ew-field"><span class="ew-fl">Subject</span><span class="ew-fv" style="font-weight:600;color:var(--ink)">${esc(subj)}</span></div>
+      </div>
+      <div class="ew-body">${esc(body)}</div>
+      <div class="ew-actions">
+        <button class="ea primary" onclick="markSent(${id})">Send to AE queue</button>
+        <button class="ea" onclick="genEmail(${id})">Regenerate</button>
+        <span class="ea-status" id="eas${id}">Ready — review before sending</span>
+      </div>
+    </div>`;
+  }catch(e){
+    btn.disabled=false;
+    btn.innerHTML='Generate AI outreach email';
+    out.innerHTML=`<div style="padding:.75rem;background:var(--red-bg);border-radius:var(--radius);border:.5px solid var(--red-border);font-size:12px;color:var(--red)">AI generation requires the API connection. In a live environment this generates a signal-grounded email in approximately 6 seconds.</div>`;
+  }
+}
+
+function markSent(id){
+  sent.add(id);
+  const s=document.getElementById('eas'+id); if(s){s.textContent='Sent · '+new Date().toLocaleTimeString();s.className='ea-status ok'}
+  const b=document.getElementById('gb'+id); if(b){b.disabled=true;b.innerHTML='✓  Outreach sent to AE queue'}
+  buildFeed(af);
+}
+
+function filt(f,btn){
+  af=f;
+  document.querySelectorAll('.ff').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  buildFeed(f);
+}
+
+function switchTab(name,btn){
+  document.querySelectorAll('.tb-link').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  showView(name);
+}
+
+function switchSb(name,btn){
+  document.querySelectorAll('.sb-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  showView(name);
+  // sync top nav
+  const map={cmd:0,pipeline:1};
+  document.querySelectorAll('.tb-link')[map[name]||0].classList.add('on');
+  document.querySelectorAll('.tb-link').forEach((b,i)=>{if(i!==(map[name]||0))b.classList.remove('on')});
+}
+
+function showView(name){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.getElementById('view-'+name).classList.add('on');
+}
+
+let n=47;
+setInterval(()=>{
+  if(Math.random()<.2){
+    n++;
+    ['hc','k1','k2'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=n});
+  }
+},7000);
+
+buildFeed('all');
+</script>
+</body>
+</html>

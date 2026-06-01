@@ -645,7 +645,7 @@ html,body{
       <a class="cta-link a4" href="https://thangaperumal-mw.github.io/Darksignal/darksignal_v8.html" target="_blank">
         → thangaperumal-mw.github.io/Darksignal/darksignal_v8.html
       </a>
-      <div class="built-by a5">Built by <strong style="color:rgba(255,255,255,.7)">Thangaperumal</strong> · Content Team · Meltwater Hackathon 2026</div>
+      <div class="built-by a5">Built by <strong style="color:rgba(255,255,255,.7)">Thangaperumal</strong> · Journalist Database Team · Meltwater Hackathon 2026</div>
     </div>
 
   </div><!-- /slides -->
@@ -686,21 +686,31 @@ function goTo(i){
   document.getElementById('slideLabel').textContent = String(cur+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');
   elapsed = 0;
   updateProgress();
-  if(playing) resetTimer();
+  // Only restart timer if currently playing — never restart if paused
+  if(playing) startTick();
 }
 
 function nav(d){ goTo(cur+d); }
 
 function togglePlay(){
   playing = !playing;
-  document.getElementById('btnPlay').textContent = playing?'⏸':'▶';
-  if(playing) resetTimer(); else stopTimer();
+  const btn = document.getElementById('btnPlay');
+  btn.textContent = playing ? '⏸' : '▶';
+  if(playing){
+    // Resume: reset lastTime so we don't count paused gap as elapsed
+    lastTime = performance.now();
+    startTick();
+  } else {
+    stopTick();
+  }
 }
 
-function resetTimer(){
-  stopTimer();
+function startTick(){
+  stopTick(); // always clear first to avoid duplicate loops
   lastTime = performance.now();
   function tick(now){
+    // Guard: if paused externally, stop immediately
+    if(!playing){ rafId = null; return; }
     const dt = now - lastTime;
     lastTime = now;
     elapsed += dt;
@@ -709,18 +719,28 @@ function resetTimer(){
     const rem = Math.max(0, dur - elapsed);
     document.getElementById('timerBadge').textContent = Math.ceil(rem/1000)+'s';
     if(elapsed >= dur){
-      if(cur < N-1){ goTo(cur+1); }
-      else { playing=false; document.getElementById('btnPlay').textContent='▶'; return; }
+      if(cur < N-1){
+        goTo(cur+1);
+      } else {
+        playing = false;
+        document.getElementById('btnPlay').textContent = '▶';
+        rafId = null;
+      }
+      return;
     }
     rafId = requestAnimationFrame(tick);
   }
   rafId = requestAnimationFrame(tick);
 }
 
-function stopTimer(){
-  if(rafId) cancelAnimationFrame(rafId);
-  rafId = null;
+function stopTick(){
+  if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
 }
+
+// Keep resetTimer as alias for backwards compat
+function resetTimer(){ elapsed=0; if(playing) startTick(); }
+
+function stopTimer(){ stopTick(); }
 
 function updateProgress(){
   const pct = Math.min(100,(elapsed/getDur())*100);
@@ -734,8 +754,10 @@ document.addEventListener('keydown',e=>{
   if(e.key===' '){ e.preventDefault(); togglePlay(); }
 });
 
-// Start
-resetTimer();
+// Start playing from slide 1
+playing = true;
+document.getElementById('btnPlay').textContent = '⏸';
+startTick();
 </script>
 
 </body>

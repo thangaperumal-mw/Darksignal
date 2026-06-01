@@ -54,7 +54,7 @@ open darksignal_v8.html
 
 ---
 
-## Demo Walkthrough (5 minutes)
+## Demo Walkthrough (5 minutes) 
 
 | Step | Action | What It Shows |
 |------|--------|---------------|

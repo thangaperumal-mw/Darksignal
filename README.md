@@ -346,7 +346,7 @@ If DarkSignal were to move beyond hackathon prototype to production, the key eng
 **Event**: Meltwater Internal Hackathon 2026
 **Category**: AI / GenAI Product Innovation
 **Team**: Solo submission
-**Built by**: Thangaperumal — Journalist Database Team, Meltwater
+**Built by**: Thangaperumal — Content Team, Meltwater
 
 The demo was built to look and feel like a real shipped product — not a prototype. There are no hackathon labels in the UI, no "coming soon" features, and no placeholder data. Every signal uses a real company, a real 2026 news event, a confirmed news source, and a fully-written outreach sequence.
 

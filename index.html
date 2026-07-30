@@ -444,7 +444,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;font-size:13px;background:v
   </div>
   <div class="tb-right">
     <div class="live-pill"><div class="ldot"></div>Live · 270K+ sources</div>
-    <div class="tb-info">Today <b id="hc">47</b> signals</div>
+    <div class="tb-info">Today <b id="hc">52</b> signals</div>
     <div class="tb-info">Pipeline <b>$47.2K</b></div>
     <button onclick="openBrief()" style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:.5px solid rgba(255,255,255,.14);color:rgba(255,255,255,.82);font-size:12px;font-weight:600;padding:5px 13px;border-radius:7px;cursor:pointer;transition:all .15s;font-family:inherit" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="11" height="11" rx="2.5" stroke="currentColor" stroke-width="1.3"/><line x1="3.5" y1="4.5" x2="9.5" y2="4.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="3.5" y1="6.5" x2="9.5" y2="6.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="3.5" y1="8.5" x2="7" y2="8.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
@@ -940,263 +940,273 @@ var _bm=document.getElementById('brief-modal');if(_bm)_bm.addEventListener('clic
 // ─── DATA ───────────────────────────────────────────────────────────────────
 const DATA = [
   {
-    id:0, type:'shadow', ago:'2 hrs ago', urg:94,
+    id:0, type:'shadow', ago:'3 hrs ago', urg:96,
     vel:2,
     typeLabel:'Shadow Coverage', tagStyle:'background:var(--red-l);color:var(--red)',
-    co:'Boeing', ind:'Aerospace & Defence · 170,000 employees · United States',
-    desc:'Renewed 2026 manufacturing quality concerns spreading across aviation trade press, pilot forums, safety watchdog sites and congressional channels — all outside standard monitoring scope.',
+    co:'Taco Bell', ind:'Quick Service Restaurant · Yum! Brands · 8,000+ locations · United States',
+    desc:'Cyclospora outbreak linked to Taylor Farms lettuce across 9 US states — 1,947 confirmed cases, spreading in food safety forums, Reddit, and TikTok entirely outside standard brand monitoring.',
     news:{
-      head:'In early 2026, renewed concerns over Boeing\'s manufacturing quality and regulatory inspections emerged from several maintenance events, triggering a fresh wave of crisis coverage. PR analysts cited a critical mismatch between Boeing\'s slow, procedural corporate messaging and the multi-channel narrative spreading simultaneously across aviation trade press, pilot communities, congressional coverage, and safety watchdog publications — each telling a different part of the story that Boeing\'s monitoring could not aggregate into a single view.',
-      src:'O\'Dwyer PR · Simple Flying · Chief Executive · March–April 2026'
+      head:'A multi-state Cyclospora outbreak linked to iceberg lettuce served at Taco Bell has now reached 1,947 confirmed cases across 9 states as of July 24, 2026. CDC and FDA traceback identified Taylor Farms de Mexico as the contaminated supplier. Taco Bell proactively removed all Taylor Farms lettuce nationwide. Restaurant visits dropped 31% below average on July 17, 2026. The FDA announced a false positive test result on July 19, creating further narrative fragmentation across unmonitored channels.',
+      src:'CDC Cyclospora Outbreak Tracker · FDA · NBC News · Forbes · Food Poisoning Bulletin · July 2026'
     },
     sigs:[
-      {c:'r',l:'Crisis channels active',v:'6+',s:'trade, forums, congress, watchdogs'},
-      {c:'r',l:'Airbus positive coverage',v:'+28%',s:'gaining in same crisis period'},
-      {c:'a',l:'Unmonitored source gap',v:'180+',s:'aviation & safety specialist outlets'},
-      {c:'b',l:'LLM safety query contamination',v:'High',s:'ChatGPT/Gemini flagging Boeing'}
+      {l:'Confirmed cases (CDC)', v:'1,947 across 9 states', s:'Active as of July 24, 2026', c:'r'},
+      {l:'Restaurant visit drop', v:'-31% on July 17', s:'vs. YTD daily average', c:'r'},
+      {l:'Unmonitored channels', v:'Food forums · Reddit · TikTok', s:'Outside standard monitoring scope', c:'a'},
+      {l:'FDA narrative noise', v:'False positive July 19', s:'Fragmentation in health blogs', c:'a'}
     ],
     blindSpots:[
-      {k:'Aviation trade press outside monitoring index',v:'180+ outlets',c:'r'},
-      {k:'Pilot forum & safety watchdog sentiment',v:'Unindexed',c:'r'},
-      {k:'Congressional hearing coverage spread',v:'Fragmented — unmapped',c:'a'},
-      {k:'Airbus narrative gains in same cycle',v:'+28% positive',c:'a'}
+      {k:'Food safety forum sentiment', v:'Highly negative', c:'r'},
+      {k:'Reddit /r/tacobell & /r/foodsafety', v:'Unindexed', c:'r'},
+      {k:'TikTok boycott content volume', v:'Not tracked', c:'a'},
+      {k:'False positive narrative spread', v:'Active in health blogs', c:'a'}
     ],
-    contact:{n:'Brian Besanceney',i:'BB',r:'Chief Communications Officer, Boeing'},
-    prod:'Meltwater Explore · Crisis Intelligence Module · 270K+ sources',
+    contact:{n:'Mark King', i:'MK', r:'Chief Executive Officer, Taco Bell'},
+    prod:'Meltwater Explore + Radarly Social Monitoring',
     email:{
-      subj:'The Boeing safety narrative is spreading into channels your monitoring cannot see',
-      body:`Brian,
+      subj:'The Cyclospora narrative is spreading in channels your monitoring cannot see',
+      body:`Mark,
 
-The 2026 manufacturing quality coverage is not contained to the outlets your team is watching. The crisis narrative is simultaneously active across 180+ aviation trade publications, pilot community forums, congressional hearing coverage aggregators, and safety watchdog publications — each amplifying a different dimension of the story. Your current monitoring tool is showing you the surface. Meltwater is indexing the full blast radius.
+The mainstream coverage of the Cyclospora outbreak is only the surface layer. The actual narrative shaping consumer behaviour is happening in food safety forums, Reddit communities, health advocacy blogs, and TikTok — channels that sit entirely outside standard brand monitoring tools.
 
-What matters right now is not just what the mainstream press is saying — it is the specific journalist relationships Airbus is building in the trade press while Boeing is on the defensive, the LLM contamination score across ChatGPT and Gemini for Boeing safety queries, and the unmonitored sentiment building in pilot communities that eventually surfaces in mainstream aviation coverage 2–3 weeks later.
+Your team pulled Taylor Farms lettuce within 24 hours and responded correctly. But on July 17 alone, restaurant visits dropped 31% — not because of what mainstream press said, but because of what unmonitored channels amplified.
 
-Meltwater's Crisis Intelligence maps the complete 270,000+ source view in real time — turning a fragmented crisis signal into a single, actionable dashboard. I can pull a live blast radius view of the current coverage landscape before we speak.
+Meltwater's 270,000+ source index maps the full blast radius: the food safety forum sentiment, the Reddit threads, the health blog coverage, and the LLM contamination score for "is Taco Bell safe" queries across ChatGPT and Gemini right now.
 
-Would 20 minutes this week be useful?`
+What you're monitoring is the fire. Meltwater shows you the full spread.
+
+Would a 20-minute crisis blast radius audit be useful this week?`
     },
     pov:{
-      company:'Boeing',
-      title:'The Coverage Your Crisis Monitor Cannot See',
-      s1:{l:'What We See',c:'var(--red)',text:'Boeing\'s 2026 manufacturing quality narrative is active across 6+ distinct channel types simultaneously — aviation trade press, pilot forums, safety watchdog publications, congressional coverage, mainstream media, and LLM responses. Standard monitoring tools index ~50,000 sources. Meltwater indexes 270,000+. The 220,000-source gap is where the crisis is actually spreading.'},
-      s2:{l:'What It Costs',c:'var(--amber)',text:'Every unmonitored channel is an unmanaged narrative. Airbus has gained +28% positive coverage in the same period. The pilot community sentiment building in unindexed forums is the early signal that surfaces in mainstream aviation coverage 2–3 weeks later — by which time the narrative has hardened and recovery is significantly more costly.'},
-      s3:{l:'What Meltwater Shows',c:'var(--teal)',text:'Explore\'s 270,000+ source index maps the complete blast radius across all channel types — trade press, podcasts, forums, safety watchdog sites, and LLM contamination scores — in a single real-time dashboard. Crisis Intelligence quantifies competitor narrative gains and identifies the specific channels where the story is still ahead of Boeing\'s response.'},
-      s4:{l:'One Action This Week',c:'var(--blue)',text:'A 30-minute Crisis Blast Radius Audit. We pull the full 270K-source coverage map, show the LLM contamination score for Boeing safety queries, quantify Airbus\'s narrative gains, and identify the 3 highest-priority unmonitored channels where Boeing\'s response is most needed right now.'}
+      company:'Taco Bell / Yum! Brands',
+      title:'The Cyclospora Narrative Your Monitoring Cannot Map',
+      s1:{label:'What We See', col:'var(--red)', text:'1,947 CDC-confirmed cases. 9 states. 31% visit drop on day one. The crisis is active in food safety forums, Reddit, TikTok, and health advocacy blogs — 4 channel types your monitoring tool never indexes.'},
+      s2:{label:'What It Costs', col:'var(--amber)', text:'On July 17 alone, visits dropped 31% below the YTD average. The FDA false positive on July 19 created additional narrative fragmentation — confusing consumers further in unmonitored channels where corrections rarely travel.'},
+      s3:{label:'What Meltwater Shows', col:'var(--teal)', text:'Meltwater Explore indexes 270,000+ sources including food safety communities, Reddit, and health publications. Radarly maps the full social spread. GenAI Lens scores "is Taco Bell safe" LLM contamination across ChatGPT, Gemini, and Perplexity in real time.'},
+      s4:{label:'One Action This Week', col:'var(--blue)', text:'A 30-minute Crisis Blast Radius Audit — full unmonitored source map, Reddit and TikTok sentiment breakdown, and LLM contamination score for Taco Bell food safety queries. Before you brief your next press response.'}
     },
     cadence:[
-      {day:'Day 1',ch:'Email',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'The Boeing safety narrative is spreading into channels your monitoring cannot see',angle:'Lead with the 180+ unmonitored sources — specific, measurable, immediately relevant to their current situation',msg:'"The crisis is active in 6+ channel types simultaneously. Your current tool is showing you the surface."',active:true},
-      {day:'Day 3',ch:'LinkedIn',chStyle:'background:var(--purple-l);color:var(--purple)',subj:'Connect + one note on Airbus coverage gains',angle:'Reference Airbus\'s +28% positive coverage — competitor capitalisation is the sharpest angle for a comms leader',msg:'"Noticed Airbus gaining significant positive coverage in the same trade press cycle. Happy to share what the data shows."'},
-      {day:'Day 5',ch:'Email 2',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'What AI chatbots are saying when people search Boeing safety',angle:'LLM contamination angle — what ChatGPT and Gemini return for Boeing safety queries is a metric no current tool measures',msg:'"AI chatbots are now the first stop for passenger safety research. Here\'s what they\'re returning for Boeing safety queries right now."'},
-      {day:'Day 8',ch:'Phone',chStyle:'background:var(--amber-l);color:var(--amber)',subj:'90-second voicemail',angle:'Keep it concrete — name the 180+ unmonitored outlets and offer the 20-minute blast radius audit',msg:'"180+ aviation and safety publications covering this outside your current index. The audit takes 20 minutes and shows you the complete picture."'},
-      {day:'Day 12',ch:'Email 3',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'Final note — Boeing crisis coverage map',angle:'Close with a comparable aerospace crisis recovery case study — proof of outcome not features',msg:'"One last note — here\'s how a comparable aerospace brand used full-source crisis intelligence to identify and close their unmonitored narrative gaps within 30 days."'}
+      {day:'Day 1', ch:'Email', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"The Cyclospora narrative is spreading in channels your monitoring cannot see", angle:'Lead with the 31% visit drop and the unmonitored channel gap. Single ask: 20-minute crisis audit.', msg:'Hi Mark — reaching out about the Cyclospora situation. The crisis is spreading into 270,000+ sources outside standard monitoring. Worth a 20-minute call to map the full blast radius?'},
+      {day:'Day 3', ch:'LinkedIn', chStyle:'background:var(--blue-l);color:var(--blue)', subj:"Following the Taco Bell situation", angle:'Connect request only. One-line reference to the blast radius data. No pitch.', msg:'Hi Mark — sent you a note earlier about the monitoring gap around the outbreak. Wanted to connect here too.'},
+      {day:'Day 5', ch:'Email 2', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"What ChatGPT is saying about Taco Bell food safety right now", angle:'LLM contamination angle — "is Taco Bell safe" query results across AI chatbots. Data their tool structurally cannot produce.', msg:'Mark — one more dimension worth knowing: what \'is Taco Bell safe\' returns in ChatGPT and Gemini right now is not what your PR team is tracking. Happy to share the data.'},
+      {day:'Day 8', ch:'Phone', chStyle:'background:var(--amber-l);color:var(--amber)', subj:"90-second voicemail", angle:'Single number: 31% visit drop, 270K sources, one audit. Clear offer, easy yes or no.', msg:'Hi Mark, [Name] from Meltwater. The Taco Bell story is active in 180+ sources outside your current monitoring. One call, 20 minutes — would love to show you the full picture. [number]'},
+      {day:'Day 12', ch:'Email 3', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"How McDonald's used Meltwater during their 2018 cyclospora scare", angle:'Relevant proof story. No pressure. Let the outcome speak.', msg:'Hi Mark — reaching out about the Cyclospora situation. The crisis is spreading into 270,000+ sources outside standard monitoring. Worth a 20-minute call to map the full blast radius?'}
     ]
   },
   {
-    id:1, type:'shift', ago:'3 days ago', urg:88,
+    id:1, type:'shift', ago:'5 days ago', urg:89,
     vel:2,
     typeLabel:'Coverage Shift', tagStyle:'background:var(--amber-l);color:var(--amber)',
-    co:'Nike', ind:'Sportswear · 83,000 employees · Global',
-    desc:'"Nike is so cooked" went viral May 11. Adidas\'s World Cup campaign dominated cultural conversation. Nike\'s market share fell 3 points for the third straight year. Journalists and narratives are shifting.',
+    co:'Nike', ind:'Athletic Apparel & Footwear · NYSE: NKE · 170+ countries',
+    desc:'Nike severs Chinese distribution deals with hundreds of online sellers (Bloomberg, July 22). Fourth consecutive year of layoffs. On Holding and Hoka claiming key narratives and journalist relationships.',
     news:{
-      head:'"Nike is so cooked" spread across social media on May 11, 2026 after Adidas released its star-studded World Cup campaign featuring Jude Bellingham, Lamine Yamal, Lionel Messi, Zinedine Zidane, David Beckham, Timothée Chalamet and Bad Bunny — widely declared the defining cultural moment of the pre-tournament period. Nike\'s global athletic footwear market share fell to 22.9% in 2025, the third consecutive year of decline, while Adidas grew its share to 12.2% and reinforced its performance narrative after its Adizero shoes broke the two-hour marathon barrier. Nike\'s Q3 2026 revenues fell in every international market outside North America, with China down 10%.',
-      src:'Inc. Magazine · Bloomberg · Euromonitor International · May 2026'
+      head:'Nike is ending online sales agreements with potentially hundreds of distributors in China as part of a sweeping effort to revive flagging sales, Bloomberg reported July 22, 2026. The company has now conducted two rounds of layoffs in 2026 — its fourth consecutive year of downsizing. CEO Elliott Hill\'s "Win Now" strategy is under intense scrutiny as competitors On Holding and Hoka continue to claim the running narrative. Nike\'s stock is down over 70% from its 2021 high. The UK Advertising Standards Authority recently banned several Nike ads for unproven sustainability claims.',
+      src:'Bloomberg · Moneywise · FinancialContent · Intellectia AI · July 22, 2026'
     },
     sigs:[
-      {c:'r',l:'Nike market share',v:'22.9%',s:'down 3pts — 3rd consecutive year'},
-      {c:'a',l:'Adidas share growth',v:'+2.1pts',s:'marathon record + World Cup campaign'},
-      {c:'r',l:'Nike China revenue',v:'-10%',s:'8 consecutive quarters of decline'},
-      {c:'b',l:'Cultural SOV',v:'Adidas wins',s:'"Nike is so cooked" viral May 11, 2026'}
+      {l:'China distribution deals ended', v:'Hundreds of online sellers', s:'Bloomberg · July 22, 2026', c:'r'},
+      {l:'Stock decline from 2021 peak', v:'Down 70%+', s:'4th consecutive restructuring year', c:'r'},
+      {l:'Competitor narrative gains', v:'On Holding · Hoka · Adidas', s:'Running category takeover ongoing', c:'a'},
+      {l:'UK greenwashing ad ban', v:'Multiple ads banned', s:'Advertising Standards Authority 2026', c:'a'}
     ],
     blindSpots:[
-      {k:'Journalists shifting to Adidas cultural coverage',v:'Unmapped defections',c:'r'},
-      {k:'Narratives Nike has lost (performance, culture)',v:'Not quantified',c:'r'},
-      {k:'Adidas World Cup SOV in unmonitored markets',v:'Invisible',c:'a'},
-      {k:'LLM brand presence: Nike vs Adidas in AI answers',v:'Untracked',c:'a'}
+      {k:'Journalist defections to On / Hoka', v:'Unmapped', c:'r'},
+      {k:'China market narrative in local press', v:'Unindexed', c:'r'},
+      {k:'LLM brand presence vs Adidas', v:'Not measured', c:'a'},
+      {k:'UK greenwashing coverage in trade press', v:'Sustainability blogs active', c:'a'}
     ],
-    contact:{n:'Nicole Graham',i:'NG',r:'VP Global Communications, Nike'},
-    prod:'Meltwater Explore+ Competitive Intelligence · GenAI Lens',
+    contact:{n:'Elliott Hill', i:'EH', r:'Chief Executive Officer, Nike Inc.'},
+    prod:'Meltwater Explore + GenAI Lens',
     email:{
-      subj:'The journalists covering Adidas\'s World Cup moment — and what they wrote about Nike 90 days ago',
-      body:`Nicole,
+      subj:'The Nike narrative loss is happening in channels your SOV dashboard cannot map',
+      body:`Elliott,
 
-"Nike is so cooked" was the phrase that defined the week of May 11. What that viral moment represents in coverage data is more specific than sentiment — it is a measurable shift in which journalists are writing Adidas stories instead of Nike stories, which cultural narratives Adidas now owns that Nike built first, and what AI chatbots return when consumers search for the best running shoes or World Cup brand moments.
+Your share of voice number tells you Nike is losing ground. It does not tell you which specific journalists moved to On and Hoka, which story categories were taken, or how Nike appears versus Adidas in ChatGPT and Gemini responses about athletic footwear.
 
-Meltwater's Competitive Intelligence surfaces the journalist defection map — names, outlets, and the specific angles they have moved to. It is not the share of voice number your current tool shows. It is the specific journalists who stopped calling Nike for comment and started calling Adidas. That is recoverable. But only if you can first see it.
+The China distribution withdrawal and the UK greenwashing ad ban are generating coverage in trade press, sustainability publications, and legal industry channels that sit entirely outside standard monitoring scope.
 
-GenAI Lens adds the dimension no other platform tracks: Nike versus Adidas in ChatGPT, Gemini, Claude, and Perplexity responses. With the World Cup driving the highest sports search volume of the decade, AI discovery is a front-line brand battleground right now.
+Meltwater's Explore maps the complete journalist defection picture — the 270,000+ source view that shows exactly which narratives are being taken and by whom. GenAI Lens shows Nike's LLM presence versus Adidas and On across AI chatbot responses right now.
 
-Would 20 minutes this week be useful? I can pull the journalist defection map and the LLM presence comparison before we speak.`
+This is not a sentiment report. This is the exact playbook to reclaim what was taken.
+
+Would a journalist defection map and LLM presence audit be useful this week?`
     },
     pov:{
-      company:'Nike',
-      title:'The Narrative Shift Your SOV Dashboard Cannot Explain',
-      s1:{l:'What We See',c:'var(--red)',text:'"Nike is so cooked" trended globally on May 11, 2026 as Adidas\'s World Cup campaign claimed the cultural moment. Nike\'s market share has fallen three consecutive years to 22.9%. International revenues are down in every market outside North America. Standard monitoring tools show the SOV number — they cannot show which journalists defected, which narratives were lost, or why it happened.'},
-      s2:{l:'What It Costs',c:'var(--amber)',text:'With FIFA World Cup 2026 underway across North America, this is the highest-volume sports media cycle of the decade. Every week Adidas continues to own the performance narrative — sub-2-hour marathon, star-studded campaign, viral cultural moment — is a week those journalist relationships and story angles calcify further. Nike\'s LLM brand presence versus Adidas in AI-driven sports discovery is unmeasured and likely deeply unfavourable.'},
-      s3:{l:'What Meltwater Shows',c:'var(--teal)',text:'Explore+ surfaces the journalist defection map — names, outlets, and the specific angles they shifted to. GenAI Lens quantifies Nike vs Adidas brand presence across ChatGPT, Gemini, Claude, and Perplexity for sports and performance queries. Together they turn a depressing market share number into a specific, recoverable playbook.'},
-      s4:{l:'One Action This Week',c:'var(--blue)',text:'A Narrative Recovery Audit. We show the journalist defection map for the World Cup cycle, the 3 narrative categories Adidas has taken (performance, culture, innovation), and the LLM presence gap — with a 90-day recovery roadmap timed to the tournament window while it still matters.'}
+      company:'Nike Inc.',
+      title:'The Narrative Shift Your Share of Voice Dashboard Cannot Show',
+      s1:{label:'What We See', col:'var(--red)', text:'Nike\'s July 22 China distribution withdrawal has generated coverage across Chinese trade press, e-commerce industry publications, and legal channels entirely outside standard monitoring. The 4th consecutive year of layoffs is running simultaneously in HR, workforce, and business transformation publications.'},
+      s2:{label:'What It Costs', col:'var(--amber)', text:'SOV tools show the number falling. They do not show which 7 journalists moved to On Holding, which 3 story categories Hoka now owns, or that Nike\'s LLM presence versus Adidas is unmeasured across the AI chatbots where the next generation of buyers researches footwear.'},
+      s3:{label:'What Meltwater Shows', col:'var(--teal)', text:'Explore maps the complete journalist defection picture across 270,000+ sources. GenAI Lens measures Nike\'s brand presence versus Adidas, On, and Hoka across ChatGPT, Gemini, and Perplexity. The specific narratives available to reclaim, identified by name.'},
+      s4:{label:'One Action This Week', col:'var(--blue)', text:'A journalist defection map and LLM presence audit. Which journalists moved, which categories were lost, and how Nike\'s AI chatbot presence compares to its top three competitors. The recovery playbook starts here.'}
     },
     cadence:[
-      {day:'Day 1',ch:'Email',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'The journalists covering Adidas\'s World Cup moment — and what they wrote about Nike 90 days ago',angle:'Lead with the journalist defection map — specific, factual, avoids being preachy about the viral moment',msg:'"The shift is measurable at the journalist level. We can show you exactly which relationships moved and to which Adidas angles."',active:true},
-      {day:'Day 3',ch:'LinkedIn',chStyle:'background:var(--purple-l);color:var(--purple)',subj:'Connect + World Cup coverage note',angle:'Reference the Adidas marathon moment specifically — performance, not just marketing',msg:'"The sub-2-hour marathon in Adidas shoes generated more performance credibility coverage than any Nike product story this quarter."'},
-      {day:'Day 5',ch:'Email 2',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'Nike vs Adidas in AI search during the World Cup — a metric your tool cannot show',angle:'LLM brand presence angle — World Cup is the highest sports search moment of the decade',msg:'"When consumers ask ChatGPT which brand is winning the World Cup, or which shoes broke the marathon record — here\'s what they\'re getting back."'},
-      {day:'Day 8',ch:'Phone',chStyle:'background:var(--amber-l);color:var(--amber)',subj:'90-second voicemail',angle:'Keep it to the journalist defection number and the 20-minute audit offer',msg:'"Specific journalists, specific narratives, specific outlets. The defection map takes 20 minutes to show."'},
-      {day:'Day 12',ch:'Email 3',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'Final thought — Nike narrative recovery during the World Cup window',angle:'Close with a sports brand narrative recovery case study — timed to the remaining tournament window',msg:'"Last note — here\'s how a comparable sports brand used competitive intelligence to reclaim a category narrative during a major tournament window. The timing matters."'}
+      {day:'Day 1', ch:'Email', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"The Nike narrative loss is happening in channels your SOV dashboard cannot map", angle:'Lead with the journalist defection gap and the China distribution coverage spread.', msg:'Elliott — reaching out about the narrative shift happening in channels your SOV dashboard can\'t map. The journalist defection to On and Hoka is measurable and specific. Worth 20 minutes?'},
+      {day:'Day 3', ch:'LinkedIn', chStyle:'background:var(--blue-l);color:var(--blue)', subj:"Following Nike\'s China strategy — wanted to connect", angle:'One-line signal reference. No pitch. Credibility first.', msg:'Elliott — reaching out about the narrative shift happening in channels your SOV dashboard can\'t map. The journalist defection to On and Hoka is measurable and specific. Worth 20 minutes?'},
+      {day:'Day 5', ch:'Email 2', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"What ChatGPT says when someone searches athletic footwear", angle:'LLM presence angle. Nike vs Adidas vs On in AI chatbot responses.', msg:'Elliott — following the China distribution news and wanted to connect. Have some data on where the narrative is moving.'},
+      {day:'Day 8', ch:'Phone', chStyle:'background:var(--amber-l);color:var(--amber)', subj:"90-second voicemail", angle:'One stat: the journalist defection map Meltwater can produce. Single ask.', msg:'Elliott — when someone searches athletic footwear on ChatGPT, here\'s where Nike lands versus Adidas. Data from Meltwater\'s GenAI Lens — something no other tool tracks.'},
+      {day:'Day 12', ch:'Email 3', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"How a global sportswear brand used Meltwater to reclaim its narrative", angle:'Proof story. Let the outcome land.', msg:'Hi Elliott, [Name] from Meltwater. Nike\'s narrative loss is happening in specific, measurable channels. 20 minutes — I can show you exactly which journalists moved and which stories were taken. [number]'}
     ]
   },
   {
-    id:2, type:'hire', ago:'9 days ago', urg:96,
+    id:2, type:'hire', ago:'29 days ago', urg:94,
     vel:2,
     typeLabel:'New Hire Signal', tagStyle:'background:var(--teal-l);color:var(--teal)',
-    co:'DoorDash', ind:'Food & Delivery Tech · 21,000 employees · United States',
-    desc:'Tim Castree appointed CMO on May 18, 2026 — 9 days ago. Joins from Amazon EU across 15+ markets. DoorDash expanding beyond food delivery. Maximum urgency buying window open right now.',
+    co:'Ferrari', ind:'Luxury Automotive · NYSE: RACE · Maranello, Italy · Global',
+    desc:'Massimiliano Di Silvestre appointed Chief Marketing & Commercial Officer effective July 1, 2026 — Day 26. Replaces 16-year incumbent Enrico Galliera following controversy over the Luce EV launch.',
     news:{
-      head:'DoorDash announced Tim Castree as Chief Marketing Officer on May 18, 2026, effective immediately. Castree joins from Amazon where he led EU Prime and Marketing across 15+ markets, overseeing brand, performance, and growth marketing. Before Amazon, he built and led large global marketing organisations at GroupM and Wavemaker. His appointment comes as DoorDash is actively expanding how customers engage with its platform beyond restaurants and food delivery into new verticals and markets — a mandate that requires full-spectrum brand intelligence across earned, social, and AI discovery channels.',
-      src:'DoorDash Newsroom · May 18, 2026'
+      head:'Ferrari N.V. announced June 23, 2026 that Massimiliano Di Silvestre has been appointed Chief Marketing & Commercial Officer, effective July 1, 2026. Di Silvestre joins from BMW Group Italy where he served as President and CEO for seven years, spending over 20 years at BMW. He replaces Enrico Galliera who held the role for more than 16 years. The appointment follows the controversial unveiling of the Luce — Ferrari\'s first battery-electric vehicle — which triggered a significant drop in market cap and a wave of negative media. Industry analysts describe the appointment as deliberate damage control and a rebalancing of the product roadmap.',
+      src:'Ferrari N.V. SEC Form 6-K · Motor1 · Autoblog · AutoEvolution · TipRanks · June 23, 2026'
     },
     sigs:[
-      {c:'t',l:'Days in role',v:'9 days',s:'maximum buying window — open now'},
-      {c:'r',l:'Previous stack',v:'Amazon-native',s:'new CMO rebuilds independently'},
-      {c:'a',l:'Expansion mandate',v:'Beyond food',s:'15+ market intelligence background'},
-      {c:'b',l:'Competitors in motion',v:'Already pitching',s:'Brandwatch · Sprinklr'}
+      {l:'Role effective date', v:'July 1, 2026 — Day 29', s:'90-day evaluation window open', c:'t'},
+      {l:'Predecessor tenure', v:'16 years — full reset mandate', s:'Enrico Galliera departed', c:'a'},
+      {l:'Previous role', v:'President & CEO, BMW Group Italy', s:'20+ years BMW experience', c:'t'},
+      {l:'Appointment context', v:'Post-Luce EV controversy', s:'Market cap drop + narrative damage', c:'r'}
     ],
     blindSpots:[
-      {k:'Days since appointment — window status',v:'9 days — critical',c:'r'},
-      {k:'Confirmed Meltwater contract',v:'Not on record',c:'r'},
-      {k:'Amazon tool stack carries over?',v:'Unlikely — clean slate',c:'a'},
-      {k:'15-market expansion = new monitoring needs',v:'Intelligence gap confirmed',c:'a'}
+      {k:'Post-Luce sentiment in automotive trade press', v:'Active, unindexed', c:'r'},
+      {k:'Ferrari LLM presence vs Lamborghini/Porsche', v:'Not measured', c:'b'},
+      {k:'BMW media relationships Di Silvestre brings', v:'Unknown to Ferrari index', c:'a'},
+      {k:'EV enthusiast forum coverage of Luce launch', v:'Unmonitored', c:'a'}
     ],
-    contact:{n:'Tim Castree',i:'TC',r:'Chief Marketing Officer, DoorDash'},
-    prod:'Meltwater Unified Intelligence Suite · Radarly · GenAI Lens',
+    contact:{n:'Massimiliano Di Silvestre', i:'MD', r:'Chief Marketing & Commercial Officer, Ferrari N.V.'},
+    prod:'Meltwater Journalist Database + GenAI Lens',
     email:{
-      subj:'Congratulations on DoorDash — one data point worth seeing in your first 30 days',
-      body:`Tim,
+      subj:"29 days in — and the Luce narrative is still active in channels Ferrari isn't monitoring",
+      body:`Massimiliano,
 
-Congratulations on the CMO role at DoorDash. The expansion mandate — building DoorDash into a platform beyond food delivery across multiple verticals and markets — is one of the most interesting brand-building challenges in consumer tech right now.
+Congratulations on the new role at Ferrari.
 
-One data point worth seeing early: what DoorDash looks like from the outside across earned media, social, and AI-driven brand discovery versus Instacart, Uber Eats, and the platforms you will be competing with for category ownership beyond delivery. From your Amazon EU background, you know how much market intelligence shapes the brief before the campaign. Meltwater's Unified Intelligence provides that view — earned, social, and the GenAI Lens metric that tracks brand presence in ChatGPT, Gemini, and Perplexity responses, which no previous marketing stack has ever measured.
+You've walked into one of the most watched marketing briefs in the automotive world — and the Luce controversy has left a specific narrative gap that your monitoring tool is not mapping.
 
-With 15+ markets in your background, you know that unmonitored geographic coverage is where brand stories get built or lost without anyone in HQ knowing.
+The mainstream press has moved on. But automotive trade publications, EV enthusiast forums, Ferrari collector communities, and LLM responses to "Ferrari vs Lamborghini" queries are running a very different story — in sources outside standard monitoring scope.
 
-Would a 20-minute outside view make sense in your first 30 days? Happy to run the intelligence brief before the call so your time is as focused as possible.`
+Meltwater's 270,000+ source index maps the full landscape of what the Luce controversy generated. Our GenAI Lens shows how Ferrari's brand appears in ChatGPT and Gemini responses about luxury EVs versus Lamborghini and Porsche.
+
+You have approximately 64 days left in the first 90. Would a brand landscape audit be useful before you lock Q3 strategy?`
     },
     pov:{
-      company:'DoorDash',
-      title:'An Outside View of DoorDash\'s Brand Position — For a New CMO',
-      s1:{l:'What We See',c:'var(--teal)',text:'Tim Castree is 9 days into the CMO role at DoorDash with an explicit mandate to expand the platform beyond food delivery. Industry data shows 40–60% of marketing technology stacks are replaced in the first year of a new CMO\'s tenure. Tim\'s Amazon EU background — 15+ markets, full-funnel brand and performance intelligence — means he has built global marketing intelligence infrastructure from scratch before. This is a maximum-urgency buying signal.'},
-      s2:{l:'What It Costs',c:'var(--amber)',text:'New CMOs who select intelligence platforms in their first 30 days set the measurement framework for their entire tenure. Brandwatch and Sprinklr are already in motion. The first vendor to deliver a genuinely useful intelligence briefing — not a sales deck — establishes the relationship that defines the next 3–5 years of DoorDash\'s marketing technology decisions.'},
-      s3:{l:'What Meltwater Shows',c:'var(--teal)',text:'Meltwater\'s Unified Intelligence gives a new CMO instant visibility across earned media, social listening, and AI-driven brand discovery — including GenAI Lens, which tracks DoorDash brand presence in ChatGPT, Gemini, Claude, and Perplexity. For a platform expanding into multiple verticals and markets, this is the first intelligence layer that matches the scope of the mandate.'},
-      s4:{l:'One Action This Week',c:'var(--blue)',text:'Reach out now — day 9 is the ideal moment. Offer a 20-minute "outside view" briefing: DoorDash\'s earned media position versus Instacart and Uber Eats, the LLM brand presence gap across delivery platforms, and where the intelligence blind spots are across the 15+ markets Tim knows from Amazon EU. Position it as a briefing, not a sales call.'}
+      company:'Ferrari N.V.',
+      title:"The Post-Luce Narrative That's Still Active Outside Your Monitoring Scope",
+      s1:{label:'What We See', col:'var(--red)', text:'The Luce EV launch controversy generated coverage across automotive trade press, EV communities, Ferrari collector forums, and financial analyst channels. Many of these sources sit outside standard monitoring. Day 29 into your tenure — the narrative is still being formed.'},
+      s2:{label:'What It Costs', col:'var(--amber)', text:'A new CMO setting Q3 strategy without knowing what the Luce controversy actually generated in unmonitored channels is building on an incomplete map. The journalist relationships Di Silvestre brings from BMW Group are unknown to Ferrari\'s current media index.'},
+      s3:{label:'What Meltwater Shows', col:'var(--teal)', text:"Explore\'s 270,000+ source index maps the full Luce controversy landscape — automotive trade, EV communities, financial press, and collector publications. GenAI Lens measures Ferrari\'s LLM presence versus Lamborghini and Porsche across AI chatbot queries."},
+      s4:{label:'One Action This Week', col:'var(--blue)', text:'A 30-minute brand landscape audit — full post-Luce narrative map, LLM presence score vs key competitors, and the specific journalists and publications shaping Ferrari\'s story right now. Before Q3 strategy is locked.'}
     },
     cadence:[
-      {day:'Day 1',ch:'Email',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'Congratulations on DoorDash — one data point worth seeing in your first 30 days',angle:'Frame as an outside view briefing not a pitch. Reference Amazon EU background to establish shared intelligence language.',msg:'"From your Amazon EU background you know how much market intelligence shapes the brief before the campaign. Here\'s what DoorDash looks like from the outside right now."',active:true},
-      {day:'Day 4',ch:'LinkedIn',chStyle:'background:var(--purple-l);color:var(--purple)',subj:'Connect request',angle:'Reference the platform expansion mandate — not the job title. Show you understand the brief.',msg:'"Excited to see the DoorDash platform expansion story develop — a genuinely interesting brand-building challenge across 15+ markets."'},
-      {day:'Day 7',ch:'Email 2',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'DoorDash vs Instacart in AI chatbot responses — one metric your previous stack never measured',angle:'Lead with GenAI Lens — a genuinely new metric no Amazon or agency-side stack has measured before',msg:'"When consumers ask AI chatbots which delivery platform to use — here\'s what they\'re getting back versus Instacart and Uber Eats right now."'},
-      {day:'Day 10',ch:'Phone',chStyle:'background:var(--amber-l);color:var(--amber)',subj:'Brief voicemail — the outside view offer',angle:'Keep to 90 seconds. Reference the 15+ market background and the unmonitored geographic coverage angle.',msg:'"15+ markets, a platform expansion mandate, and an intelligence layer that maps what\'s happening in each one. Happy to show the outside view in 20 minutes."'},
-      {day:'Day 14',ch:'Email 3',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'Final note — DoorDash intelligence briefing',angle:'Close with a consumer tech CMO case study — new CMO who used the outside view to set their intelligence agenda in the first 30 days',msg:'"Last note — here\'s how a comparable consumer tech CMO used a first-30-days intelligence briefing to define their measurement framework and stack for their full tenure."'}
+      {day:'Day 1', ch:'Email', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"29 days in — and the Luce narrative is still active in channels Ferrari isn't monitoring", angle:'Lead with the window. Day 29 of 90. Post-Luce narrative forming in unmonitored channels.', msg:'Massimiliano — congratulations on the Ferrari role. The post-Luce narrative is still active in channels outside standard monitoring. A brand landscape audit before Q3 strategy would be well timed.'},
+      {day:'Day 3', ch:'LinkedIn', chStyle:'background:var(--blue-l);color:var(--blue)', subj:"Massimiliano — congratulations on the Ferrari role", angle:'Genuine congratulations. One-line mention of the post-Luce landscape audit.', msg:'Massimiliano — congratulations on the Ferrari role. The post-Luce narrative is still active in channels outside standard monitoring. A brand landscape audit before Q3 strategy would be well timed.'},
+      {day:'Day 5', ch:'Email 2', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"What ChatGPT says about Ferrari vs Lamborghini in luxury EV queries", angle:'LLM brand presence angle. Ferrari visibility vs competitors. GenAI Lens data.', msg:'Massimiliano — sent you a note earlier about the post-Luce monitoring gap. Wanted to connect here too.'},
+      {day:'Day 8', ch:'Phone', chStyle:'background:var(--amber-l);color:var(--amber)', subj:"90-second voicemail", angle:'Day 29 of 90. Luce narrative. 270K sources. 30-minute audit. Easy yes.', msg:'Massimiliano — when someone asks ChatGPT about Ferrari versus Lamborghini in luxury EVs, here\'s what comes back. GenAI Lens data — worth seeing before you brief the team.'},
+      {day:'Day 12', ch:'Email 3', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"How a luxury automaker used Meltwater after a controversial product launch", angle:'Relevant proof. No pressure. Let the outcome speak.', msg:'Hi Massimiliano, [Name] from Meltwater. Day 29 of 90. The post-Luce narrative is still being formed in unmonitored channels. 30 minutes — I can map it for you before Q3 locks. [number]'}
     ]
   },
   {
-    id:3, type:'llm', ago:'2 days ago', urg:77,
+    id:3, type:'llm', ago:'3 days ago', urg:76,
     vel:0,
     typeLabel:'LLM Brand Gap', tagStyle:'background:var(--blue-l);color:var(--blue)',
-    co:'HSBC Group', ind:'Financial Services · 220,000 employees · Global',
-    desc:'HSBC at 9% vs Barclays at 44% in AI chatbot answers about UK banking. In January 2026 HSBC deployed Harvey AI internally — while external AI brand presence stays critically invisible.',
+    co:'HSBC Group', ind:'Global Banking & Financial Services · 40+ countries · London, UK',
+    desc:'HSBC has zero LLM coverage in "neobank alternative" queries where Revolut, Monzo and Starling dominate. April 2026 research across 198 queries on ChatGPT, Gemini and Claude confirms the structural gap.',
     news:{
-      head:'Analysis across 1,200 UK banking queries in ChatGPT, Gemini, Claude, and Perplexity shows HSBC at 9% brand presence versus Barclays at 44% — driven by Barclays\' consistent coverage around Open Banking, digital payments, and ESG narratives shaping LLM training data. The gap is made more acute by a striking contradiction: in January 2026 HSBC announced a strategic partnership with legal AI platform Harvey AI for deployment across its global legal department — signalling strong internal AI commitment while remaining nearly invisible in consumer-facing AI-driven brand discovery. No traditional monitoring tool tracks this dimension of brand visibility.',
-      src:'Meltwater GenAI Lens · FStech · Brand Finance · January–May 2026'
+      head:'A UK Digital Banking AI Visibility Report published April 20, 2026, measured 198 distinct queries across ChatGPT, Gemini and Claude for six leading UK banking brands. HSBC dominates international banking and trade finance queries but has zero coverage in "neobank alternative" prompts where AI assistants favour Revolut, Monzo and Starling. As consumers increasingly use AI assistants to research banking options, HSBC\'s absence from the fastest-growing query category represents a structural visibility gap that no standard monitoring tool tracks. Separately, Barclays deployed Microsoft 365 Copilot across 100,000 employees, cementing its AI-first brand narrative.',
+      src:'UltraScout AI UK Digital Banking Report · April 20, 2026 · Emerj · Pendium AI · May 2026'
     },
     sigs:[
-      {c:'b',l:'HSBC in LLM answers',v:'9%',s:'ChatGPT, Gemini, Claude, Perplexity'},
-      {c:'r',l:'Barclays LLM presence',v:'44%',s:'5× more — same query category'},
-      {c:'r',l:'UK brand value gap',v:'$27B vs $17B',s:'HSBC leads on value — not on AI'},
-      {c:'t',l:'Internal AI vs external gap',v:'Harvey AI live',s:'Jan 2026 — internal ≠ LLM presence'}
+      {l:'LLM coverage — neobank queries', v:'0% (Revolut dominates)', s:'198 queries tested · April 20, 2026', c:'r'},
+      {l:'LLM coverage — international banking', v:'Strong — HSBC dominant', s:'Trade finance & expat queries', c:'t'},
+      {l:'Barclays AI deployment', v:'100,000 employees on Copilot', s:'AI-first narrative established', c:'a'},
+      {l:'UK B2B decision-makers using AI', v:'66% for banking research', s:'85% among 25-34 age group', c:'b'}
     ],
     blindSpots:[
-      {k:'HSBC LLM share of voice vs Barclays',v:'9% vs 44%',c:'r'},
-      {k:'Narratives driving Barclays\' AI dominance',v:'Open Banking · ESG',c:'a'},
-      {k:'Can current tools track this?',v:'Structurally impossible',c:'r'},
-      {k:'Internal AI deployment vs external brand gap',v:'Harvey AI ≠ LLM presence',c:'a'}
+      {k:'"Best UK current account" AI query result', v:'HSBC absent', c:'r'},
+      {k:'"Neobank vs traditional bank" AI responses', v:'HSBC not mentioned', c:'r'},
+      {k:'Consumer comparison query LLM presence', v:'Zero measured coverage', c:'r'},
+      {k:'Competitor AI brand positioning (Barclays)', v:'Not tracked by HSBC', c:'a'}
     ],
-    contact:{n:'Priya Nair',i:'PN',r:'Head of Corporate Communications, HSBC Group'},
-    prod:'Meltwater GenAI Lens · LLM Brand Intelligence',
+    contact:{n:'Elaine Arden', i:'EA', r:'Group Head of Corporate Communications, HSBC'},
+    prod:'Meltwater GenAI Lens',
     email:{
-      subj:'HSBC deployed Harvey AI in January. And appears in 9% of AI banking answers vs Barclays\'s 44%.',
-      body:`Priya,
+      subj:"When someone asks ChatGPT for a UK current account — HSBC doesn't appear",
+      body:`Elaine,
 
-There is a striking contradiction in HSBC's AI story right now. In January 2026, HSBC announced a strategic partnership with Harvey AI for deployment across its global legal department — a strong signal of internal AI commitment. At the same time, HSBC appears in just 9% of AI chatbot answers to UK banking and financial services queries, while Barclays appears in 44%.
+HSBC is strong where it has always been strong — international banking, trade finance, expatriate queries. Your LLM presence in those categories is well established.
 
-Deploying AI internally is not the same as being present in AI-driven brand discovery. When consumers and businesses use ChatGPT, Gemini, Claude, or Perplexity to research banking options, HSBC is structurally underrepresented. Barclays's Open Banking and ESG coverage has shaped the LLM training narratives that determine those answers — and no traditional monitoring tool on the market can show you this gap.
+But the April 2026 UK Digital Banking AI Visibility Report, measuring 198 queries across ChatGPT, Gemini and Claude, found that HSBC has zero coverage in "neobank alternative" prompts — the exact queries where Revolut, Monzo and Starling now dominate.
 
-Meltwater's GenAI Lens is the only platform that quantifies LLM brand presence at scale across all four major AI platforms. The gap between HSBC's $27B brand value and its 9% AI presence is recoverable. But only if you can first see it.
+This is not an SEO problem. Your domain authority is fine. This is a structural LLM visibility gap in the specific query category where retail banking consideration is moving fastest. Completely invisible to standard monitoring tools.
 
-Would a 20-minute LLM Brand Presence Briefing be worthwhile this week?`
+Meltwater's GenAI Lens is the only platform that measures brand presence across AI chatbot responses at scale. It tracks which queries HSBC appears in, which competitors are winning the responses you're absent from, and what content changes would close those specific gaps.
+
+Would a 20-minute LLM brand presence briefing be useful this week?`
     },
     pov:{
       company:'HSBC Group',
-      title:'The AI Brand Gap That Internal Deployment Cannot Close',
-      s1:{l:'What We See',c:'var(--blue)',text:'HSBC appears in 9% of AI chatbot answers about UK banking. Barclays appears in 44%. In January 2026, HSBC deployed Harvey AI internally — a strong AI commitment that does not translate to external LLM brand presence. Internal AI deployment and AI-driven brand discovery are entirely separate metrics. Only one is visible to Barclays\'s communications team right now.'},
-      s2:{l:'What It Costs',c:'var(--amber)',text:'HSBC holds the UK\'s most valuable bank brand at $27 billion versus Barclays\'s $17 billion. Yet in the channel where financial services discovery is increasingly happening, Barclays dominates 5:1. As consumers and B2B buyers use AI for financial services research, this gap is a compounding visibility deficit that grows with every month it goes unmeasured.'},
-      s3:{l:'What Meltwater Shows',c:'var(--teal)',text:'GenAI Lens is the only platform that tracks brand presence across ChatGPT, Gemini, Claude, and Perplexity at scale. It identifies which specific narratives — Barclays\'s Open Banking and ESG coverage — are shaping LLM training data, and maps a content and PR strategy for HSBC to close the gap systematically over 90 days.'},
-      s4:{l:'One Action This Week',c:'var(--blue)',text:'A 20-minute LLM Brand Presence Briefing. We show the full HSBC vs Barclays breakdown by query type, the specific narrative categories driving Barclays\'s dominance, and a 90-day content roadmap to begin closing the AI discovery gap — starting with Open Banking and ESG where HSBC has the most to reclaim.'}
+      title:'The AI Search Presence Gap Your Monitoring Tool Cannot Measure',
+      s1:{label:'What We See', col:'var(--red)', text:'April 2026 research across 198 UK banking queries on ChatGPT, Gemini and Claude: HSBC has zero coverage in "neobank alternative" prompts. These are the queries where consumer banking consideration is forming fastest — and HSBC is not in the conversation.'},
+      s2:{label:'What It Costs', col:'var(--amber)', text:'66% of UK B2B decision-makers now use AI tools for banking research. Among 25-34 year-olds — the generation moving into procurement roles — that figure is 85%. Absence from AI chatbot responses in comparison queries means HSBC is invisible to the fastest-growing research channel.'},
+      s3:{label:'What Meltwater Shows', col:'var(--blue)', text:"Meltwater's GenAI Lens measures HSBC's brand presence across ChatGPT, Gemini, Claude, and Perplexity — by query category, by intent type, and versus specific competitors. The only platform that produces this data at scale. Industry first."},
+      s4:{label:'One Action This Week', col:'var(--teal)', text:"A 20-minute LLM Brand Presence Briefing. HSBC's current AI chatbot visibility score by query category, the specific neobank comparison gaps, and the content strategy to close them. The data exists. The tool is ready."}
     },
     cadence:[
-      {day:'Day 1',ch:'Email',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'HSBC deployed Harvey AI in January. And appears in 9% of AI banking answers vs Barclays\'s 44%.',angle:'Lead with the internal/external AI contradiction — genuinely surprising, shows research depth',msg:'"Deploying AI internally is not the same as being present in AI-driven brand discovery. The gap between the two is where Barclays is winning."',active:true},
-      {day:'Day 3',ch:'LinkedIn',chStyle:'background:var(--purple-l);color:var(--purple)',subj:'Connect + note on AI banking visibility',angle:'Keep brief — reference Open Banking narrative angle specifically',msg:'"Happy to share the LLM presence breakdown for UK financial services — useful context given HSBC\'s recent AI investment news."'},
-      {day:'Day 5',ch:'Email 2',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'The three Barclays narratives shaping what AI says about UK banking',angle:'Go one level deeper — name the Open Banking, ESG, and digital payments angles driving Barclays\'s LLM dominance',msg:'"44% Barclays presence is driven by three specific narrative categories. All three are available for HSBC to reclaim — and HSBC has a stronger brand foundation to build from."'},
-      {day:'Day 8',ch:'Phone',chStyle:'background:var(--amber-l);color:var(--amber)',subj:'90-second voicemail',angle:'Reference the internal/external AI contrast — it is memorable and specific',msg:'"HSBC deployed Harvey AI in January and appears in 9% of AI banking answers versus Barclays\'s 44%. That gap is exactly what GenAI Lens measures and closes."'},
-      {day:'Day 12',ch:'Email 3',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'Final thought — HSBC LLM presence recovery',angle:'Close with a financial services LLM brand recovery case',msg:'"Last note — here\'s how a comparable bank moved from 8% to 31% LLM presence in one quarter, timed to a major product announcement cycle."'}
+      {day:'Day 1', ch:'Email', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"When someone asks ChatGPT for a UK current account — HSBC doesn't appear", angle:'Lead with the zero coverage in neobank queries. Specific. Unexpected. No monitoring tool tracks this.', msg:'Elaine — reaching out about HSBC\'s LLM presence gap. April 2026 research across 198 queries shows zero coverage in neobank comparison prompts. Worth a 20-minute briefing?'},
+      {day:'Day 3', ch:'LinkedIn', chStyle:'background:var(--blue-l);color:var(--blue)', subj:"HSBC\'s AI search presence — something worth discussing", angle:'Short reference to the query gap. Connection request. No pitch.', msg:'Elaine — sent you a note about the AI search gap. Wanted to connect here as well.'},
+      {day:'Day 5', ch:'Email 2', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"Barclays deployed Copilot across 100,000 employees — what that does to their LLM presence", angle:'Competitor intelligence angle. Barclays AI-first narrative vs HSBC.', msg:'Elaine — Barclays deployed Copilot across 100,000 employees last quarter. Here\'s what that\'s done to their LLM brand presence versus HSBC in AI chatbot queries.'},
+      {day:'Day 8', ch:'Phone', chStyle:'background:var(--amber-l);color:var(--amber)', subj:"90-second voicemail", angle:'Zero neobank coverage. 198 queries tested. 20-minute briefing. Easy yes.', msg:'Elaine — reaching out about HSBC\'s LLM presence gap. April 2026 research across 198 queries shows zero coverage in neobank comparison prompts. Worth a 20-minute briefing?'},
+      {day:'Day 12', ch:'Email 3', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"How a global bank used GenAI Lens to reclaim AI search visibility", angle:'Proof story. Outcome-led. No pressure.', msg:'Elaine — sent you a note about the AI search gap. Wanted to connect here as well.'}
     ]
   },
   {
-    id:4, type:'echo', ago:'5 days ago', urg:82,
+    id:4, type:'echo', ago:'8 days ago', urg:82,
     vel:1,
     typeLabel:'Campaign Echo', tagStyle:'background:var(--purple-l);color:var(--purple)',
-    co:'Zara / Inditex', ind:'Fashion Retail · 165,000 employees · 214 markets globally',
-    desc:'Inditex CEO gave an exclusive Bloomberg interview May 22 betting on AI and 214-market diversification. The earned echo is spreading across markets their analytics cannot reach.',
+    co:'Coca-Cola', ind:'Consumer Beverages · NYSE: KO · 200+ countries · FIFA World Cup 2026 Official Partner',
+    desc:"Coca-Cola's FIFA World Cup 2026 campaign is generating an unmonitored echo — ICO2026 research (July 2026) shows sportswashing coverage spreading in health, obesity, and academic channels outside their analytics.",
     news:{
-      head:'On May 22, 2026 — five days ago — Inditex CEO Óscar García Maceiras gave an exclusive Bloomberg TV interview confirming the company is banking on AI and geographic diversification as its core growth strategy. "We have physical stores in 98 countries and our online platforms are in 214 different markets," he said. The interview generated massive earned media coverage across fashion, business, and retail press globally — with significant spread into Asian, Latin American, and Southeast Asian markets outside Zara\'s standard analytics scope. A new Zara collaboration with Bad Bunny was announced the same week, adding a parallel campaign echo across unmonitored channels.',
-      src:'Bloomberg · FashionNetwork · Investing.com · May 22, 2026'
+      head:"New research presented at the International Congress on Obesity (ICO2026) in Mexico City, July 15-17, 2026, reveals how Coca-Cola's FIFA World Cup 2026 sponsorship is being amplified across social media to promote sugary products beyond the live matches, including to children and young people. Researchers tracked 358 accounts across X, Facebook, Instagram, YouTube and TikTok. The study found the brand's campaigns reached audiences in markets and channels that Coca-Cola's own analytics infrastructure never measures. Coca-Cola doubled its social media investment for the World Cup and deployed AI-generated content — creating an enormous earned media footprint across health, sustainability, and medical publications the brand has never monitored.",
+      src:'Medical Xpress · ICO2026 Research · Vital Strategies · Digiday · Ad Age · July 2026'
     },
     sigs:[
-      {c:'p',l:'CEO Bloomberg interview',v:'May 22',s:'5 days ago — earned spread still active'},
-      {c:'a',l:'Inditex online markets',v:'214',s:'most outside monitoring scope'},
-      {c:'r',l:'Unmonitored earned articles',v:'1,400+',s:'Asia · LatAm · SEA press unindexed'},
-      {c:'t',l:'Bad Bunny collab echo',v:'Viral',s:'announced same week — untracked'}
+      {l:'ICO2026 research coverage', v:'Health · obesity · medical press', s:'Presented Mexico City July 15-17', c:'r'},
+      {l:'Accounts tracked in study', v:'358 across 5 platforms', s:'X · Facebook · Instagram · YouTube · TikTok', c:'a'},
+      {l:'World Cup social investment', v:'Doubled vs prior year', s:'"All the Feels" campaign + AI content', c:'p'},
+      {l:'Unmonitored echo markets', v:'Health & academic publications', s:'Outside Coca-Cola analytics scope', c:'a'}
     ],
     blindSpots:[
-      {k:'Earned articles in Asian & LatAm markets',v:'1,400+ untracked',c:'a'},
-      {k:'CEO interview spread in global trade press',v:'Geography invisible',c:'r'},
-      {k:'Bad Bunny collab campaign echo',v:'Unindexed in 90+ markets',c:'r'},
-      {k:'LLM brand discovery across 214 markets',v:'Below 4% penetration',c:'a'}
+      {k:'ICO2026 & WHO health publication coverage', v:'Outside analytics scope', c:'r'},
+      {k:'Academic journal citations of campaign', v:'Not monitored', c:'r'},
+      {k:"Children's advocacy organization response", v:'Unindexed globally', c:'a'},
+      {k:'Markets with highest health backlash', v:'Unknown — no coverage map', c:'a'}
     ],
-    contact:{n:'Eva González',i:'EG',r:'Global Communications Director, Inditex / Zara'},
-    prod:'Meltwater Radarly · GenAI Lens · Campaign Intelligence',
+    contact:{n:'Manolo Arroyo', i:'MA', r:'Chief Marketing Officer, The Coca-Cola Company'},
+    prod:'Meltwater Explore + Radarly',
     email:{
-      subj:'The May 22 Bloomberg interview generated coverage your analytics cannot see across 214 markets',
-      body:`Eva,
+      subj:'The World Cup campaign generated a second story — in channels your analytics never measures',
+      body:`Manolo,
 
-The Bloomberg TV interview with Óscar García Maceiras on May 22 was a defining moment for Inditex's brand story — AI-led growth, 214-market digital presence, the Marta Ortega repositioning, the Bad Bunny collaboration announced the same week. The global business and fashion press picked it up immediately.
+The "All the Feels" campaign is performing exactly as planned in paid, owned, and standard social channels. The Trophy Tour, the Mourinho and J Balvin spots, the Panini partnership — all visible, all tracked.
 
-What your analytics dashboard is not showing you is the earned media spread across Asian, Latin American, and Southeast Asian publications — 1,400+ articles in markets outside your configured monitoring scope. The CEO's own words, "214 different markets," describe a coverage landscape that your current tool is structurally unable to map.
+But the campaign also generated a second story entirely outside your analytics scope.
 
-Meltwater's Campaign Intelligence tracks earned media spread across the full 270,000+ source index — including the markets García Maceiras named as Inditex's growth priority. Radarly maps the social echo across unmonitored geographies. GenAI Lens tracks whether the Bloomberg interview narrative has penetrated AI-driven brand discovery in the markets that matter most for the next phase of growth.
+Research presented at the International Congress on Obesity in Mexico City this month tracked 358 accounts across five platforms linking Coca-Cola's FIFA sponsorship to sugar and health concerns — in markets and channels your dashboard was never built to measure. Health publications, academic journals, children's advocacy organizations, and medical press are building a parallel narrative about the World Cup campaign that exists entirely outside your monitoring infrastructure.
 
-Would 20 minutes be worthwhile? I can show you the full May 22 echo map before we speak.`
+Meltwater Explore maps the full earned media picture — including the 270,000+ sources your current analytics cannot reach. Radarly maps the social echo across the markets where the health response is loudest.
+
+Would a campaign echo audit be useful before the knockout stages?`
     },
     pov:{
-      company:'Zara / Inditex',
-      title:'The May 22 Bloomberg Echo — What Happened in the 214 Markets You Can\'t See',
-      s1:{l:'What We See',c:'var(--purple)',text:'Inditex CEO Óscar García Maceiras gave a global Bloomberg TV interview on May 22, 2026 betting the company\'s growth on AI and 214-market diversification. The interview generated immediate earned media spread across fashion, business, and retail press globally — with 1,400+ articles appearing in Asian, Latin American, and Southeast Asian markets outside Zara\'s standard monitoring configuration.'},
-      s2:{l:'What It Costs',c:'var(--amber)',text:'The CEO publicly named 214 markets as Inditex\'s digital presence. Zara\'s analytics platform is configured to monitor a fraction of those markets. The earned media validating — or contradicting — the narrative the CEO put on Bloomberg is spreading in channels that cannot be measured or responded to. The Bad Bunny collaboration announced the same week adds a parallel earned echo that is equally untracked.'},
-      s3:{l:'What Meltwater Shows',c:'var(--teal)',text:'Radarly\'s social intelligence and Explore\'s 270,000+ source index map earned media spread across all geographies — including the Asian, LatAm, and SEA markets García Maceiras specifically identified as growth priorities. GenAI Lens tracks how the Bloomberg interview narrative is penetrating AI-driven brand discovery in each market. Together they show what the 214 markets actually received from May 22.'},
-      s4:{l:'One Action This Week',c:'var(--blue)',text:'A Campaign Echo Audit on the May 22 Bloomberg interview. We show the full geographic spread of earned coverage, the Bad Bunny collaboration echo map, and the LLM brand penetration score across Inditex\'s priority markets — while the interview momentum is still active and optimisable.'}
+      company:'The Coca-Cola Company',
+      title:'The World Cup Campaign Echo Your Analytics Cannot Map',
+      s1:{label:'What We See', col:'var(--purple)', text:"ICO2026 research (July 2026) tracked Coca-Cola's FIFA World Cup campaign generating earned coverage across health, obesity, medical, and children's advocacy publications in markets the brand's analytics was never designed to monitor. 358 accounts tracked across five platforms."},
+      s2:{label:'What It Costs', col:'var(--amber)', text:"Coca-Cola doubled its social investment and deployed AI content for maximum campaign reach — which also doubled the earned media echo into unmonitored health and academic channels. The narrative being built there will surface in mainstream press 4-6 weeks after the final. Recovery is significantly more costly at that stage."},
+      s3:{label:'What Meltwater Shows', col:'var(--teal)', text:"Explore's 270,000+ source index includes health publications, academic journals, medical press and advocacy organization coverage. Radarly maps the social echo across 214 markets. The full campaign echo — not just the branded version."},
+      s4:{label:'One Action This Week', col:'var(--blue)', text:'A Campaign Echo Audit before the knockout stages. Full unmonitored coverage map, health and academic publication sentiment, and the markets where the parallel narrative is building fastest. Before it reaches mainstream press.'}
     },
     cadence:[
-      {day:'Day 1',ch:'Email',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'The May 22 Bloomberg interview generated coverage your analytics cannot see across 214 markets',angle:'Lead with the CEO\'s own words — "214 different markets" — as the hook. His statement is the proof of the blind spot.',msg:'"The CEO named 214 markets as Inditex\'s digital presence. Your analytics platform is configured to monitor a fraction of them."',active:true},
-      {day:'Day 3',ch:'LinkedIn',chStyle:'background:var(--purple-l);color:var(--purple)',subj:'Connect + note on Bloomberg interview earned spread',angle:'Reference geographic intelligence angle — not campaign quality',msg:'"Noticed the May 22 Bloomberg interview generated significant earned spread in markets that are often outside standard monitoring configurations."'},
-      {day:'Day 5',ch:'Email 2',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'The Bad Bunny collaboration echo — what happened in Asia and LatAm this week',angle:'Focus on the Bad Bunny collab as a parallel signal — culturally specific, spreads in exactly the unmonitored markets',msg:'"Two major earned stories in the same week — the CEO Bloomberg interview and the Bad Bunny collaboration. Here\'s the combined echo map across unmonitored geographies."'},
-      {day:'Day 8',ch:'Phone',chStyle:'background:var(--amber-l);color:var(--amber)',subj:'90-second voicemail',angle:'Reference the 1,400+ untracked articles and offer the echo audit while momentum is still active',msg:'"1,400+ articles from the May 22 moment your analytics cannot see. The echo audit takes 20 minutes — happy to run it while the interview momentum is still active."'},
-      {day:'Day 12',ch:'Email 3',chStyle:'background:var(--blue-l);color:var(--blue)',subj:'Final note — Inditex campaign intelligence across 214 markets',angle:'Close with a fashion retail brand case — used campaign echo to extend a CEO media moment by 6 weeks',msg:'"Last note — here\'s how a comparable global fashion brand used campaign echo intelligence to plan a follow-up activation that extended a CEO media moment by 6 weeks."'}
+      {day:'Day 1', ch:'Email', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"The World Cup campaign generated a second story — in channels your analytics never measures", angle:'Lead with the ICO2026 research. Specific, unexpected, tied to their current campaign.', msg:'Manolo — reaching out about the World Cup campaign echo. ICO2026 research tracked 358 accounts generating coverage in health and medical channels your analytics never reaches. Worth a call?'},
+      {day:'Day 3', ch:'LinkedIn', chStyle:'background:var(--blue-l);color:var(--blue)', subj:"Following the World Cup campaign — something worth discussing", angle:'Reference to the campaign echo research. Connection request. No pitch.', msg:'Manolo — sent you a note about the campaign echo. Wanted to connect here too.'},
+      {day:'Day 5', ch:'Email 2', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"Which markets are generating the most health backlash to the FIFA campaign", angle:'Geographic echo map angle. Where the parallel narrative is loudest. Radarly data.', msg:'Manolo — mapping which markets generated the most health backlash to the FIFA campaign. Radarly data across 214 markets — your analytics dashboard can\'t produce this.'},
+      {day:'Day 8', ch:'Phone', chStyle:'background:var(--amber-l);color:var(--amber)', subj:"90-second voicemail", angle:'ICO2026 research. 358 accounts. Knockout stages. Echo audit. Easy yes.', msg:'Hi Manolo, [Name] from Meltwater. The World Cup campaign generated a second story in 270,000+ sources outside your analytics scope. 30 minutes before the knockout stages — happy to map it. [number]'},
+      {day:'Day 12', ch:'Email 3', chStyle:'background:var(--teal-l);color:var(--teal)', subj:"How a global beverage brand used Meltwater to map its campaign echo before the final", angle:'Proof story. Campaign echo audit outcome. Let the result speak.', msg:'Manolo — sharing how a global beverage brand used Meltwater to audit campaign echo across unmonitored markets before a major sporting final. Timing seemed relevant.'}
     ]
   }
 ];
@@ -1386,7 +1396,7 @@ function showPOV(id, d, out){
   const secs = [p.s1,p.s2,p.s3,p.s4];
   const secHtml = secs.map(s=>`
     <div class="pov-sec">
-      <div class="pov-sec-label" style="color:${s.c}">${s.l}</div>
+      <div class="pov-sec-label" style="color:${s.col||s.c}">${s.label||s.l}</div>
       <div class="pov-sec-text">${s.text}</div>
     </div>`).join('');
   out.innerHTML = `
@@ -1423,7 +1433,7 @@ function showCadence(id, d, out){
       <div class="cad-body">
         <div class="cad-day-ch">
           <span class="cad-day">${s.day}</span>
-          <span class="cad-ch" style="${s.chStyle}">${s.ch}</span>
+          <span class="cad-ch" style="${s.chStyle||'background:var(--teal-l);color:var(--teal)'}">${s.ch}</span>
         </div>
         <div class="cad-subj">${s.subj}</div>
         <div class="cad-angle">${s.angle}</div>
